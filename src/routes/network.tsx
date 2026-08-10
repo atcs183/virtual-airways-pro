@@ -1,23 +1,26 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Page, SectionHead } from "@/components/site/SiteChrome";
+import { photos } from "@/lib/photos";
 
 export const Route = createFileRoute("/network")({
   head: () => ({
     meta: [
-      { title: "Route Network & Timetable — Meridian Virtual Airline" },
+      { title: "Destinations — The Saudia Virtual Route Network" },
       {
         name: "description",
         content:
-          "Meridian's seasonal timetable from London Heathrow and Boston Logan: 140 city pairs, real block times, bid windows every 14 days.",
+          "120+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
       },
-      { property: "og:title", content: "Route Network & Timetable — Meridian Virtual" },
+      { property: "og:title", content: "Destinations — Saudia Virtual" },
       {
         property: "og:description",
-        content: "Two hubs, 140 city pairs, real-world block times and a 14-day bid cycle.",
+        content: "Three hubs, six continents, 120+ cities on the current schedule.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/network" },
+      { property: "og:image", content: photos.alula },
+      { name: "twitter:image", content: photos.alula },
     ],
     links: [{ rel: "canonical", href: "/network" }],
   }),
@@ -25,120 +28,199 @@ export const Route = createFileRoute("/network")({
 });
 
 const HUBS = [
-  { icao: "EGLL", city: "London Heathrow", legs: "86", note: "Primary hub · T3 stands" },
-  { icao: "KBOS", city: "Boston Logan", legs: "41", note: "Secondary hub · Terminal E" },
-  { icao: "OTHH", city: "Doha Hamad", legs: "13", note: "Focus city · long-haul turnarounds" },
+  {
+    icao: "OEJN",
+    city: "Jeddah",
+    name: "King Abdulaziz International",
+    d: "The Red Sea gateway and pilgrim hub. Long-haul departures west and the whole cargo operation.",
+    img: photos.jeddah,
+  },
+  {
+    icao: "OERK",
+    city: "Riyadh",
+    name: "King Khalid International",
+    d: "Capital base for business traffic — dense Gulf shuttle plus flagship 777 services east.",
+    img: photos.riyadh,
+  },
+  {
+    icao: "OEMA",
+    city: "Madinah",
+    name: "Prince Mohammad bin Abdulaziz",
+    d: "Umrah and Hajz season focus city with seasonal widebody surges from Asia and North Africa.",
+    img: photos.madinah,
+  },
 ];
 
-const TIMETABLE = [
-  ["MRD 118", "EGLL", "KBOS", "A339", "06h 55", "Daily", "OPEN"],
-  ["MRD 244", "EGLL", "LOWW", "A20N", "02h 15", "Daily x2", "BID"],
-  ["MRD 310", "EGLL", "LFPG", "B738", "01h 20", "Daily x4", "OPEN"],
-  ["MRD 517", "OTHH", "VHHH", "B77W", "08h 05", "Mon Wed Fri", "FULL"],
-  ["MRD 620", "KBOS", "CYYZ", "A20N", "01h 45", "Daily x3", "OPEN"],
-  ["MRD 741", "EGLL", "OMDB", "B78X", "06h 45", "Daily", "BID"],
-  ["MRD 902", "KBOS", "SBGR", "B78X", "09h 40", "Tue Thu Sun", "OPEN"],
-  ["MRD 1180", "EGLL", "RJTT", "B77W", "13h 25", "Wed Sat", "OPEN"],
+const REGIONS = [
+  {
+    r: "Domestic Kingdom",
+    n: 28,
+    cities: ["Jeddah", "Riyadh", "Madinah", "Dammam", "Abha", "AlUla", "Tabuk", "Gassim"],
+  },
+  {
+    r: "Middle East & Levant",
+    n: 22,
+    cities: ["Dubai", "Doha", "Muscat", "Kuwait", "Amman", "Beirut", "Cairo", "Bahrain"],
+  },
+  {
+    r: "Europe",
+    n: 24,
+    cities: ["London", "Paris", "Frankfurt", "Milan", "Madrid", "Geneva", "Athens", "Istanbul"],
+  },
+  {
+    r: "Asia Pacific",
+    n: 26,
+    cities: ["Singapore", "Delhi", "Jakarta", "Manila", "Kuala Lumpur", "Dhaka", "Karachi", "Colombo"],
+  },
+  {
+    r: "Africa",
+    n: 14,
+    cities: ["Khartoum", "Nairobi", "Addis Ababa", "Casablanca", "Tunis", "Lagos"],
+  },
+  { r: "Americas", n: 8, cities: ["New York", "Washington", "Toronto", "Los Angeles", "São Paulo"] },
+];
+
+const SHOWCASE = [
+  { city: "AlUla", code: "ULH", img: photos.alula, note: "Sandstone canyons and Elephant Rock" },
+  { city: "Makkah region", code: "JED", img: photos.makkah, note: "The Umrah and Hajj corridor" },
+  { city: "Abha", code: "AHB", img: photos.abha, note: "Highland approach at 6,800 ft AMSL" },
+  { city: "Dubai", code: "DXB", img: photos.dubai, note: "Six daily Gulf shuttle rotations" },
+  { city: "Athens", code: "ATH", img: photos.athens, note: "Seasonal summer A321XLR service" },
+  { city: "Muscat", code: "MCT", img: photos.muscat, note: "Coastal Gulf hop, 90 minutes block" },
+  { city: "Delhi", code: "DEL", img: photos.delhi, note: "Nightly 787-9 subcontinent service" },
+  { city: "New York", code: "JFK", img: photos.newyork, note: "Flagship 777-300ER transatlantic" },
 ];
 
 function Network() {
   return (
     <Page>
-      <section className="relative overflow-hidden border-b border-border">
-        <div className="grid-plate absolute inset-0 opacity-50" />
-        <div className="relative mx-auto max-w-[1400px] px-5 py-24 md:py-32">
-          <p className="label-tag text-primary">SECTION 02 · NETWORK</p>
-          <h1 className="h-display mt-6 max-w-4xl">
-            Two hubs.
+      <section className="relative isolate overflow-hidden border-b border-border">
+        <img
+          src={photos.alula}
+          alt="Elephant Rock sandstone formation in AlUla, Saudi Arabia"
+          width={1400}
+          height={900}
+          className="absolute inset-0 h-full w-full object-cover opacity-35"
+        />
+        <div className="deck-fade absolute inset-0" />
+        <div className="relative mx-auto max-w-[1320px] px-5 py-28 md:py-36">
+          <p className="arabic text-2xl">الوجهات</p>
+          <h1 className="h-display mt-3 max-w-3xl">
+            120+ cities.
             <br />
-            One-forty city pairs.
+            <span className="gold-text">Six continents.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            The timetable is rebuilt every northern season from published carrier data. Block times
-            are real, equipment assignment is real, and the overnight rotations actually make sense
-            on a duty clock.
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+            The schedule follows real-world Saudia operations, with seasonal Hajj and Umrah capacity
+            layered on top of the year-round network.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-5 py-20">
-        <SectionHead index="HUBS" title="Where the metal sleeps" />
-        <div className="grid gap-px bg-panel-line md:grid-cols-3">
+      <section className="mx-auto max-w-[1320px] px-5 py-24">
+        <SectionHead eyebrow="Bases" title="Three hubs in the Kingdom" />
+        <div className="grid gap-6 md:grid-cols-3">
           {HUBS.map((h) => (
-            <motion.div
+            <motion.article
               key={h.icao}
-              initial={{ opacity: 0, y: 14 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.45 }}
-              className="bg-background p-8"
+              transition={{ duration: 0.5 }}
+              className="group overflow-hidden rounded-[var(--radius-2xl)] border border-border bg-panel"
             >
-              <p className="font-display text-5xl font-bold text-primary">{h.icao}</p>
-              <p className="mt-3 text-lg font-bold">{h.city}</p>
-              <p className="label-tag mt-2">{h.note}</p>
-              <p className="mt-6 font-mono text-xs text-accent">{h.legs} weekly departures</p>
-            </motion.div>
+              <div className="relative">
+                <img
+                  src={h.img}
+                  alt={`${h.city}, Saudi Arabia`}
+                  width={900}
+                  height={600}
+                  loading="lazy"
+                  className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <span className="font-display absolute top-4 left-4 rounded-full bg-background/80 px-3 py-1.5 text-xs font-bold tracking-widest text-accent">
+                  {h.icao}
+                </span>
+              </div>
+              <div className="p-7">
+                <h3 className="text-xl">{h.city}</h3>
+                <p className="mt-1 text-xs font-semibold tracking-[0.16em] text-muted-foreground uppercase">
+                  {h.name}
+                </p>
+                <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{h.d}</p>
+              </div>
+            </motion.article>
           ))}
         </div>
       </section>
 
       <section className="border-y border-border bg-panel">
-        <div className="mx-auto max-w-[1400px] px-5 py-20">
+        <div className="mx-auto max-w-[1320px] px-5 py-24">
           <SectionHead
-            index="TIMETABLE / S26"
-            title="Departure board"
-            intro="Claim a duty during the bid window, download the OFP, fly it within 14 days."
+            eyebrow="Coverage"
+            title="The network by region"
+            intro="Counts reflect the current published schedule. Charter pilots may operate outside it entirely."
           />
-          <div className="overflow-x-auto">
-            <table className="w-full min-w-[720px] border-collapse font-mono text-xs">
-              <thead>
-                <tr className="border-b border-panel-line text-left">
-                  {["Flight", "From", "To", "Eq", "Block", "Frequency", "Status"].map((h) => (
-                    <th
-                      key={h}
-                      className="py-3 pr-4 text-[11px] tracking-[0.2em] text-muted-foreground uppercase"
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {REGIONS.map((r) => (
+              <div key={r.r} className="surface p-7">
+                <div className="flex items-baseline justify-between">
+                  <h3 className="text-lg">{r.r}</h3>
+                  <span className="font-display text-2xl font-semibold text-accent">{r.n}</span>
+                </div>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {r.cities.map((c) => (
+                    <span
+                      key={c}
+                      className="rounded-full border border-border px-3 py-1.5 text-xs text-muted-foreground"
                     >
-                      {h}
-                    </th>
+                      {c}
+                    </span>
                   ))}
-                </tr>
-              </thead>
-              <tbody>
-                {TIMETABLE.map((r) => (
-                  <tr
-                    key={r[0]}
-                    className="border-b border-panel-line transition-colors last:border-0 hover:bg-background"
-                  >
-                    <td className="py-4 pr-4 text-primary">{r[0]}</td>
-                    <td className="py-4 pr-4 text-foreground">{r[1]}</td>
-                    <td className="py-4 pr-4 text-foreground">{r[2]}</td>
-                    <td className="py-4 pr-4 text-muted-foreground">{r[3]}</td>
-                    <td className="py-4 pr-4 tabular-nums text-muted-foreground">{r[4]}</td>
-                    <td className="py-4 pr-4 text-muted-foreground">{r[5]}</td>
-                    <td
-                      className={`py-4 pr-4 ${r[6] === "FULL" ? "text-muted-foreground" : "text-accent"}`}
-                    >
-                      {r[6]}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                </div>
+              </div>
+            ))}
           </div>
-          <p className="label-tag mt-6">Extract of 140 published pairs · full board in the crew centre</p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-5 py-24">
-        <div className="panel flex flex-col items-start gap-6 p-10 md:flex-row md:items-center md:justify-between md:p-14">
-          <h2 className="max-w-lg text-[clamp(1.7rem,3.6vw,2.8rem)] font-bold">
-            Want the whole board? It ships with your crew ID.
-          </h2>
+      <section className="mx-auto max-w-[1320px] px-5 py-24">
+        <SectionHead eyebrow="Featured legs" title="Worth blocking out an evening for" />
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {SHOWCASE.map((s) => (
+            <motion.div
+              key={s.code}
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+              className="group relative overflow-hidden rounded-[var(--radius-xl)] border border-border"
+            >
+              <img
+                src={s.img}
+                alt={s.city}
+                width={900}
+                height={1100}
+                loading="lazy"
+                className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="deck-fade absolute inset-0" />
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <p className="text-[11px] font-bold tracking-[0.22em] text-accent uppercase">
+                  {s.code}
+                </p>
+                <p className="font-display mt-1 text-lg font-semibold">{s.city}</p>
+                <p className="mt-1 text-xs text-muted-foreground">{s.note}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+        <div className="mt-12 text-center">
           <Link
             to="/join"
-            className="border border-primary bg-primary px-7 py-4 font-mono text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-transparent hover:text-primary"
+            className="rounded-full bg-accent px-8 py-4 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.04]"
           >
-            File an application
+            Fly these routes with us
           </Link>
         </div>
       </section>
