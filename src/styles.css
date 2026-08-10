@@ -3,17 +3,18 @@
 @import "tw-animate-css";
 
 /*
- * MERIDIAN VIRTUAL — design system
- * Archetype: Industrial / Utility (flight-deck instrumentation, EFB night mode).
- * Palette: cold hangar charcoal, avionics panel slate, phosphor-green primary,
- * caution amber accent. All values oklch. Components must use tokens only.
+ * SAUDIA VIRTUAL — design system
+ * Direction: dark luxe Gulf-carrier brand site (Oryx Virtual layout language),
+ * Saudia identity: deep palm-green canvas, sand-gold accent, ivory type.
+ * Colors are oklch tokens only; components never hardcode hex.
  */
 
 @theme inline {
-  --radius-sm: 2px;
-  --radius-md: 3px;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 3px);
+  --radius-xl: calc(var(--radius) + 8px);
+  --radius-2xl: calc(var(--radius) + 16px);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -35,44 +36,49 @@
   --color-ring: var(--ring);
   --color-panel: var(--panel);
   --color-panel-line: var(--panel-line);
-  --color-caution: var(--caution);
-  --color-warning: var(--warning);
-  --color-sky: var(--sky);
-  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
-  --font-sans: "Barlow", system-ui, sans-serif;
+  --color-sand: var(--sand);
+  --color-palm: var(--palm);
+  --font-display: "Sora", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-arabic: "Amiri", "Times New Roman", serif;
+  --font-mono: ui-monospace, monospace;
 }
 
 :root {
-  --radius: 2px;
-  --background: oklch(0.17 0.014 250);
-  --foreground: oklch(0.94 0.006 250);
-  --card: oklch(0.21 0.016 252);
-  --card-foreground: oklch(0.94 0.006 250);
-  --popover: oklch(0.21 0.016 252);
-  --popover-foreground: oklch(0.94 0.006 250);
-  --primary: oklch(0.85 0.19 146);
-  --primary-foreground: oklch(0.19 0.03 150);
-  --secondary: oklch(0.26 0.018 252);
-  --secondary-foreground: oklch(0.92 0.006 250);
-  --muted: oklch(0.24 0.016 252);
-  --muted-foreground: oklch(0.66 0.017 250);
-  --accent: oklch(0.82 0.16 78);
-  --accent-foreground: oklch(0.2 0.03 70);
-  --destructive: oklch(0.65 0.21 25);
-  --destructive-foreground: oklch(0.97 0.01 250);
-  --border: oklch(0.31 0.018 252);
-  --input: oklch(0.28 0.018 252);
-  --ring: oklch(0.85 0.19 146);
-  --panel: oklch(0.2 0.016 252);
-  --panel-line: oklch(0.33 0.02 252);
-  --caution: oklch(0.82 0.16 78);
-  --warning: oklch(0.68 0.2 30);
-  --sky: oklch(0.72 0.11 232);
+  --radius: 1rem;
+  --background: oklch(0.16 0.028 158);
+  --foreground: oklch(0.96 0.008 100);
+  --card: oklch(0.2 0.032 158);
+  --card-foreground: oklch(0.96 0.008 100);
+  --popover: oklch(0.2 0.032 158);
+  --popover-foreground: oklch(0.96 0.008 100);
+  --primary: oklch(0.62 0.13 158);
+  --primary-foreground: oklch(0.14 0.03 158);
+  --secondary: oklch(0.24 0.03 158);
+  --secondary-foreground: oklch(0.96 0.008 100);
+  --muted: oklch(0.23 0.026 158);
+  --muted-foreground: oklch(0.74 0.018 120);
+  --accent: oklch(0.82 0.12 84);
+  --accent-foreground: oklch(0.18 0.04 84);
+  --destructive: oklch(0.62 0.19 27);
+  --destructive-foreground: oklch(0.97 0.01 100);
+  --border: oklch(0.3 0.03 158);
+  --input: oklch(0.26 0.03 158);
+  --ring: oklch(0.82 0.12 84);
+  --panel: oklch(0.19 0.03 158);
+  --panel-line: oklch(0.3 0.03 158);
+  --sand: oklch(0.86 0.07 82);
+  --palm: oklch(0.55 0.14 155);
 
-  --grid-line: oklch(0.28 0.018 252 / 60%);
-  --shadow-panel: 0 1px 0 oklch(1 0 0 / 5%) inset, 0 18px 40px -24px oklch(0 0 0 / 80%);
-  --glow-phosphor: 0 0 0 1px oklch(0.85 0.19 146 / 35%), 0 0 28px -6px oklch(0.85 0.19 146 / 45%);
+  --gradient-deck: linear-gradient(
+    180deg,
+    oklch(0.16 0.028 158 / 0%) 0%,
+    oklch(0.16 0.028 158 / 55%) 45%,
+    oklch(0.16 0.028 158) 100%
+  );
+  --gradient-gold: linear-gradient(100deg, var(--sand), oklch(0.93 0.05 88), var(--accent));
+  --shadow-lift: 0 30px 70px -40px oklch(0 0 0 / 85%);
+  --glow-gold: 0 0 60px -18px oklch(0.82 0.12 84 / 55%);
 }
 
 @layer base {
@@ -82,13 +88,13 @@
 
   html {
     -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
-    font-feature-settings: "tnum" 1;
   }
 
   h1,
@@ -96,61 +102,62 @@
   h3,
   h4 {
     font-family: var(--font-display);
-    text-transform: uppercase;
-    letter-spacing: 0.01em;
-    line-height: 0.92;
-    font-weight: 700;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.03;
   }
 
   ::selection {
-    background: var(--primary);
-    color: var(--primary-foreground);
+    background: var(--accent);
+    color: var(--accent-foreground);
   }
 }
 
-@utility panel {
-  background: var(--panel);
-  border: 1px solid var(--panel-line);
-  box-shadow: var(--shadow-panel);
-}
-
-/* Blueprint / chart grid used behind hero + section breaks */
-@utility grid-plate {
-  background-image:
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 56px 56px;
-}
-
-@utility label-tag {
-  font-family: var(--font-mono);
+@utility eyebrow {
   font-size: 0.6875rem;
-  letter-spacing: 0.22em;
+  font-weight: 700;
+  letter-spacing: 0.34em;
   text-transform: uppercase;
-  color: var(--muted-foreground);
+  color: var(--accent);
 }
 
-@utility phosphor {
-  color: var(--primary);
-  text-shadow: 0 0 18px oklch(0.85 0.19 146 / 45%);
+@utility arabic {
+  font-family: var(--font-arabic);
+  color: var(--accent);
+  line-height: 1.5;
 }
 
 @utility h-display {
   font-family: var(--font-display);
-  text-transform: uppercase;
-  font-weight: 700;
-  line-height: 0.88;
-  font-size: clamp(2.5rem, 7vw, 6.5rem);
-  letter-spacing: -0.01em;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  font-size: clamp(2.4rem, 6.2vw, 5.2rem);
 }
 
-@utility scanline {
-  background-image: repeating-linear-gradient(
-    to bottom,
-    oklch(1 0 0 / 3%) 0px,
-    oklch(1 0 0 / 3%) 1px,
-    transparent 1px,
-    transparent 3px
+@utility gold-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility surface {
+  background: var(--panel);
+  border: 1px solid var(--panel-line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lift);
+}
+
+@utility deck-fade {
+  background-image: var(--gradient-deck);
+}
+
+@utility dune-glow {
+  background-image: radial-gradient(
+    60% 60% at 50% 40%,
+    oklch(0.55 0.14 155 / 26%) 0%,
+    transparent 70%
   );
 }
 
@@ -164,10 +171,13 @@
 }
 
 @utility marquee-track {
-  animation: marquee-scroll 38s linear infinite;
+  animation: marquee-scroll 42s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
   *,
   *::before,
   *::after {
