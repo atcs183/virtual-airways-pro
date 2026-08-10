@@ -1,25 +1,27 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Page, SectionHead } from "@/components/site/SiteChrome";
-import flightdeck from "@/assets/flightdeck.jpg";
+import { Page, SectionHead, WelcomeSplash } from "@/components/site/SiteChrome";
+import { photos } from "@/lib/photos";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Meridian Virtual Airline — Flight Sim Operations Flown to Standard" },
+      { title: "Saudia Virtual — A Virtual Airline for the Spirit of Saudi Aviation" },
       {
         name: "description",
         content:
-          "Meridian Virtual is a procedure-driven virtual airline for MSFS, X-Plane and P3D. Real-world routes, published SOPs, PIREP-verified logbooks and a rated crew.",
+          "Saudia Virtual flies real-world Saudia schedules across 120+ destinations on MSFS, X-Plane 12 and P3D. Mainline, cargo and executive divisions. Pilot intake open.",
       },
-      { property: "og:title", content: "Meridian Virtual Airline — Flown to Standard" },
+      { property: "og:title", content: "Saudia Virtual — Passion for Saudi Arabia" },
       {
         property: "og:description",
         content:
-          "Procedure-driven virtual airline flying real-world schedules on VATSIM and IVAO. Crew intake open.",
+          "Real-world schedules, three operating divisions and an active Discord community. Join the crew.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
+      { property: "og:image", content: photos.heroWing },
+      { name: "twitter:image", content: photos.heroWing },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -29,242 +31,384 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "Meridian Virtual Airline",
-          alternateName: "MRD",
+          name: "Saudia Virtual",
           description:
-            "Simulation-only virtual airline operating real-world schedules for MSFS, X-Plane 12 and P3D.",
+            "Flight simulation virtual airline inspired by Saudi Arabian aviation, operating real-world schedules across 120+ destinations.",
           url: "/",
         }),
       },
     ],
   }),
-  component: Dispatch,
+  component: Home,
 });
 
-const READOUT = [
-  { k: "Active crew", v: "412", u: "pilots" },
-  { k: "Legs filed", v: "68,540", u: "PIREPs" },
-  { k: "Network hours", v: "91,206", u: "hrs" },
-  { k: "On-time perf.", v: "94.2", u: "%" },
+const STATS = [
+  { v: "120+", k: "Destinations" },
+  { v: "54,300+", k: "PIREPs filed" },
+  { v: "8.4M+", k: "Miles flown" },
+  { v: "690+", k: "Active pilots" },
 ];
 
-const PILLARS = [
+const PARTNERS = ["VATSIM", "IVAO", "SimBrief", "Navigraph", "Arabian vACC", "FSHud", "AeroSoft"];
+
+const DIFFERENCE = [
   {
-    code: "OPS-01",
-    title: "Published SOPs",
-    body: "Every type on the certificate has a written flow: preflight, takeoff briefing, climb profile, stable-approach gates at 1,000 ft IMC / 500 ft VMC. No house rules invented mid-flight.",
+    t: "Real-World Sync",
+    d: "Timetables mirror published Saudia operations — Hajj and Umrah season surges, cargo rotations and seasonal European city pairs included.",
   },
   {
-    code: "OPS-02",
-    title: "Real schedules",
-    body: "Timetables are rebuilt each season from published carrier data — correct city pairs, correct block times, correct equipment. You fly a duty, not a random leg.",
+    t: "Automated Tracking",
+    d: "Our ACARS client logs the flight for you: fuel burn, landing rate, flap schedule. File the PIREP the moment the parking brake is set.",
   },
   {
-    code: "OPS-03",
-    title: "Verified logbook",
-    body: "The ACARS client records fuel burn, landing rate, flap and gear schedule. PIREPs are auto-validated and reviewed by a Standards pilot before hours credit.",
+    t: "Al-Khaleej Freedom",
+    d: "Charter division pilots fly anywhere on the globe. No route limits, no minimum sectors, no bidding queue.",
   },
   {
-    code: "OPS-04",
-    title: "Rank progression",
-    body: "Second Officer through Training Captain. Hours plus a checkride move you up; upgrades unlock heavier metal and long-haul rosters.",
+    t: "Cabin Immersion",
+    d: "Arabic and English boarding announcements, Saudia-style cabin soundpacks and a full livery set for every fleet type.",
   },
+  {
+    t: "A Real Community",
+    d: "An active Discord with group flights every Thursday night and close ties to Arabian vACC for genuine ATC coverage.",
+  },
+  {
+    t: "Ranks That Mean Something",
+    d: "From Cadet to Training Captain. Hours are earned in the air and reviewed by a human before the widebody unlocks.",
+  },
+];
+
+const DIVISIONS = [
+  {
+    t: "Mainline Operations",
+    d: "Fly the flagship schedule from Jeddah, Riyadh and Madinah to 120+ cities across five continents.",
+    img: photos.kingdomTower,
+    tag: "SVA",
+  },
+  {
+    t: "Saudia Cargo",
+    d: "Heavy freight rotations on the 747-8F and 777F — Jeddah to Hong Kong, Frankfurt and Chicago.",
+    img: photos.cargo,
+    tag: "SVC",
+  },
+  {
+    t: "Al-Khaleej Charter",
+    d: "VIP and executive movements with complete freedom. No fixed routes, no restrictions, anywhere on earth.",
+    img: photos.bizjet,
+    tag: "AKC",
+  },
+];
+
+const DESTINATIONS = [
+  { city: "Jeddah", country: "Saudi Arabia", img: photos.jeddah },
+  { city: "Riyadh", country: "Saudi Arabia", img: photos.riyadh },
+  { city: "Madinah", country: "Saudi Arabia", img: photos.madinah },
+  { city: "AlUla", country: "Saudi Arabia", img: photos.alula },
+  { city: "Abha", country: "Saudi Arabia", img: photos.abha },
+  { city: "London", country: "United Kingdom", img: photos.london },
+  { city: "New York", country: "United States", img: photos.newyork },
+  { city: "Singapore", country: "Singapore", img: photos.singapore },
 ];
 
 const MARQUEE = [
-  "EGLL",
-  "OTHH",
-  "KBOS",
-  "LFPG",
-  "VHHH",
-  "SBGR",
-  "RJTT",
-  "KSEA",
-  "LOWW",
-  "OMDB",
-  "CYYZ",
-  "WSSS",
+  "أهلاً وسهلاً",
+  "PASSION FOR SAUDI ARABIA",
+  "OEJN · JEDDAH",
+  "FLY THE KINGDOM",
+  "OERK · RIYADH",
+  "SINCE 1945 IN SPIRIT",
 ];
 
-function Dispatch() {
+function Home() {
   return (
-    <Page>
-      {/* HERO — dispatch release slip over a night flight deck */}
-      <section className="relative overflow-hidden border-b border-border">
-        <img
-          src={flightdeck}
-          alt="Night flight deck on approach, instrument panel illuminated"
-          width={1600}
-          height={1000}
-          className="absolute inset-0 h-full w-full object-cover opacity-35"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/30" />
-        <div className="grid-plate absolute inset-0 opacity-40" />
-        <div className="scanline pointer-events-none absolute inset-0 opacity-60" />
+    <>
+      <WelcomeSplash />
+      <Page>
+        {/* HERO */}
+        <section className="relative isolate min-h-[92vh] overflow-hidden">
+          <img
+            src={photos.heroWing}
+            alt="Wing of an airliner above the clouds at golden hour"
+            width={1920}
+            height={1080}
+            className="absolute inset-0 h-full w-full object-cover opacity-45"
+          />
+          <div className="deck-fade absolute inset-0" />
+          <div className="dune-glow absolute inset-0" />
+          <div className="relative mx-auto flex min-h-[92vh] max-w-[1320px] flex-col justify-center px-5 py-24">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="max-w-3xl"
+            >
+              <p className="arabic text-2xl md:text-3xl">أهلاً وسهلاً</p>
+              <h1 className="h-display mt-4">
+                Saudia Virtual
+                <br />
+                <span className="gold-text">Passion for the Kingdom</span>
+              </h1>
+              <p className="mt-7 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+                Fly the full network — mainline, cargo and executive charter — from one home. Real
+                schedules, honest tracking, and a community built for pilots who love the freedom of
+                the flight deck.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-6">
+                <Link
+                  to="/join"
+                  className="rounded-full bg-accent px-8 py-4 text-sm font-bold text-accent-foreground shadow-[var(--glow-gold)] transition-transform hover:scale-[1.04]"
+                >
+                  Join the Crew
+                </Link>
+                <Link
+                  to="/operations"
+                  className="border-b border-accent/50 pb-1 text-sm font-semibold text-foreground transition-colors hover:text-accent"
+                >
+                  What makes us different →
+                </Link>
+              </div>
+            </motion.div>
 
-        <div className="relative mx-auto max-w-[1400px] px-5 py-20 md:py-32">
-          <motion.div
-            initial={{ opacity: 0, y: 14 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="max-w-4xl"
-          >
-            <p className="label-tag mb-6 flex flex-wrap items-center gap-3">
-              <span className="border border-primary/60 px-2 py-1 text-primary">
-                DISPATCH RELEASE
-              </span>
-              <span>MRD · OPS SPEC 121</span>
-              <span className="hidden sm:inline">SIMULATION ONLY</span>
-            </p>
-            <h1 className="h-display">
-              Flown to
-              <br />
-              <span className="phosphor">standard.</span>
-              <br />
-              Not to vibes.
-            </h1>
-            <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-              Meridian Virtual is a procedure-driven virtual airline. Real-world timetables,
-              published SOPs, ACARS-verified PIREPs and a Standards department that actually reads
-              them. Bring any sim — bring discipline.
-            </p>
-            <div className="mt-10">
-              <Link
-                to="/join"
-                className="group inline-flex items-center gap-4 border border-primary bg-primary px-7 py-4 font-mono text-xs tracking-[0.2em] text-primary-foreground uppercase transition-all hover:bg-transparent hover:text-primary"
-              >
-                File an application
-                <span className="transition-transform group-hover:translate-x-1">→</span>
-              </Link>
+            <div className="mt-20 grid grid-cols-2 gap-y-10 border-t border-border/70 pt-10 md:grid-cols-4">
+              {STATS.map((s, i) => (
+                <motion.div
+                  key={s.k}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3 + i * 0.09, duration: 0.5 }}
+                >
+                  <p className="font-display text-4xl font-semibold text-accent md:text-5xl">
+                    {s.v}
+                  </p>
+                  <p className="mt-2 text-xs font-semibold tracking-[0.22em] text-muted-foreground uppercase">
+                    {s.k}
+                  </p>
+                </motion.div>
+              ))}
             </div>
-          </motion.div>
+          </div>
+        </section>
 
-          {/* Instrument readout strip */}
-          <div className="panel mt-16 grid grid-cols-2 divide-x divide-y divide-panel-line md:grid-cols-4 md:divide-y-0">
-            {READOUT.map((r, i) => (
-              <motion.div
-                key={r.k}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 + i * 0.08, duration: 0.5 }}
-                className="px-5 py-6"
+        {/* PARTNERS */}
+        <section className="border-y border-border bg-panel py-10">
+          <p className="text-center text-[11px] font-bold tracking-[0.34em] text-muted-foreground uppercase">
+            In partnership with
+          </p>
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-12 gap-y-5 px-5">
+            {PARTNERS.map((p) => (
+              <span
+                key={p}
+                className="font-display text-lg font-semibold tracking-wide text-muted-foreground/70 transition-colors hover:text-foreground"
               >
-                <p className="label-tag">{r.k}</p>
-                <p className="font-display mt-2 text-4xl font-bold tabular-nums text-primary md:text-5xl">
-                  {r.v}
-                  <span className="ml-2 font-mono text-xs tracking-widest text-muted-foreground">
-                    {r.u}
-                  </span>
+                {p}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* FROM THE FLIGHT DECK */}
+        <section className="mx-auto max-w-[1320px] px-5 py-28">
+          <div className="grid gap-14 md:grid-cols-2 md:items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative overflow-hidden rounded-[var(--radius-2xl)] border border-border"
+            >
+              <img
+                src={photos.terminal}
+                alt="Traditional Saudi arcaded architecture lit at night"
+                width={1400}
+                height={900}
+                loading="lazy"
+                className="h-[420px] w-full object-cover"
+              />
+              <p className="arabic absolute bottom-5 left-6 text-xl">من قمرة القيادة</p>
+            </motion.div>
+            <div>
+              <p className="eyebrow">From the flight deck</p>
+              <h2 className="mt-4 text-[clamp(1.9rem,3.8vw,3rem)]">
+                &ldquo;Positive rate, gear up.&rdquo;
+              </h2>
+              <div className="mt-6 space-y-5 text-base leading-relaxed text-muted-foreground">
+                <p>
+                  Welcome aboard. Saudia Virtual exists because the aviation of this region deserves
+                  to be simulated properly — the desert departures at dawn, the Hajj season pressure,
+                  the long overwater legs to Asia and the Americas.
                 </p>
+                <p>
+                  Whether you fly a 45-minute hop from Jeddah to Madinah or thirteen hours to Los
+                  Angeles, you&rsquo;ll find the same standard here: high-quality operations, a warm
+                  community, and realism that respects both the airline and the culture behind it.
+                </p>
+                <p className="font-semibold text-foreground">
+                  &ldquo;Come and help us build the most respected virtual airline in the Middle
+                  East.&rdquo;
+                </p>
+              </div>
+              <p className="mt-6 text-xs font-semibold tracking-[0.22em] text-accent uppercase">
+                Chief Executive Officer · Saudia Virtual
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* THE DIFFERENCE */}
+        <section className="border-y border-border bg-panel">
+          <div className="mx-auto max-w-[1320px] px-5 py-28">
+            <SectionHead
+              eyebrow="Why pilots stay"
+              title={
+                <>
+                  The Saudia Virtual <span className="gold-text">difference.</span>
+                </>
+              }
+              intro="Six reasons our pilots keep filing PIREPs long after the novelty of a new livery wears off."
+            />
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {DIFFERENCE.map((f, i) => (
+                <motion.article
+                  key={f.t}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{ duration: 0.45, delay: (i % 3) * 0.07 }}
+                  className="surface p-8 transition-colors hover:border-accent/50"
+                >
+                  <span className="font-display text-sm font-semibold text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="mt-4 text-xl">{f.t}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{f.d}</p>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* DIVISIONS */}
+        <section className="mx-auto max-w-[1320px] px-5 py-28">
+          <SectionHead
+            eyebrow="Explore our operations"
+            title="Three divisions. One crew ID."
+            intro="Choose the flying that suits your week — and switch whenever you like."
+          />
+          <div className="grid gap-6 md:grid-cols-3">
+            {DIVISIONS.map((d) => (
+              <motion.article
+                key={d.t}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5 }}
+                className="group relative overflow-hidden rounded-[var(--radius-2xl)] border border-border"
+              >
+                <img
+                  src={d.img}
+                  alt={d.t}
+                  width={1000}
+                  height={700}
+                  loading="lazy"
+                  className="h-[420px] w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="deck-fade absolute inset-0" />
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <span className="rounded-full border border-accent/60 px-3 py-1 text-[11px] font-bold tracking-[0.2em] text-accent">
+                    {d.tag}
+                  </span>
+                  <h3 className="mt-4 text-2xl">{d.t}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d.d}</p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </section>
+
+        {/* MARQUEE */}
+        <div className="overflow-hidden border-y border-border bg-panel py-5">
+          <div className="marquee-track flex w-max items-center gap-10 whitespace-nowrap">
+            {[...MARQUEE, ...MARQUEE].map((m, i) => (
+              <span
+                key={i}
+                className="flex items-center gap-10 font-display text-sm font-semibold tracking-[0.28em] text-muted-foreground/70 uppercase"
+              >
+                {m}
+                <span className="text-accent">✦</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* DESTINATIONS */}
+        <section className="mx-auto max-w-[1320px] px-5 py-28">
+          <SectionHead
+            eyebrow="Live network"
+            title={
+              <>
+                Where to <span className="gold-text">next?</span>
+              </>
+            }
+            intro="From the Red Sea coast to six continents — a preview of the cities on the current schedule."
+          />
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {DESTINATIONS.map((d) => (
+              <motion.div
+                key={d.city}
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45 }}
+                className="group relative overflow-hidden rounded-[var(--radius-xl)] border border-border"
+              >
+                <img
+                  src={d.img}
+                  alt={`${d.city}, ${d.country}`}
+                  width={900}
+                  height={1100}
+                  loading="lazy"
+                  className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="deck-fade absolute inset-0" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="text-[11px] font-bold tracking-[0.22em] text-accent uppercase">
+                    {d.country}
+                  </p>
+                  <p className="font-display mt-1 text-lg font-semibold">{d.city}</p>
+                </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Station marquee */}
-      <div className="overflow-hidden border-b border-border bg-panel py-3">
-        <div className="marquee-track flex w-max gap-8 whitespace-nowrap">
-          {[...MARQUEE, ...MARQUEE].map((s, i) => (
-            <span key={i} className="label-tag flex items-center gap-8 text-muted-foreground">
-              {s}
-              <span className="text-primary">◆</span>
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Operating philosophy */}
-      <section className="mx-auto max-w-[1400px] px-5 py-24">
-        <SectionHead
-          index="01 / DOCTRINE"
-          title="How Meridian operates"
-          intro="Four standing orders. They are the reason our roster looks like an airline and not a Discord server with a livery."
-        />
-        <div className="grid gap-px bg-panel-line md:grid-cols-2">
-          {PILLARS.map((p) => (
-            <motion.article
-              key={p.code}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.5 }}
-              className="group bg-background p-8 transition-colors hover:bg-panel md:p-12"
-            >
-              <p className="label-tag text-accent">{p.code}</p>
-              <h3 className="mt-4 text-3xl font-bold">{p.title}</h3>
-              <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
-                {p.body}
-              </p>
-            </motion.article>
-          ))}
-        </div>
-      </section>
-
-      {/* Duty snapshot */}
-      <section className="border-y border-border bg-panel">
-        <div className="mx-auto grid max-w-[1400px] gap-10 px-5 py-20 md:grid-cols-[1fr_1.1fr] md:items-center">
-          <div>
-            <p className="label-tag text-primary">02 / TODAY&apos;S BOARD</p>
-            <h2 className="mt-5 text-[clamp(1.9rem,4vw,3.2rem)] font-bold">
-              A roster you can actually plan around
-            </h2>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Bid windows open every 14 days. Claim a duty, get the OFP, fly it inside the window.
-              Miss it and it returns to the pool — no penalty, no drama.
-            </p>
+          <div className="mt-12 text-center">
             <Link
               to="/network"
-              className="mt-8 inline-block border-b border-primary pb-1 font-mono text-xs tracking-[0.2em] text-primary uppercase"
+              className="rounded-full border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
             >
-              Inspect the network →
+              View the full network
             </Link>
           </div>
-          <div className="panel divide-y divide-panel-line">
-            {[
-              ["MRD 118", "EGLL → KBOS", "A339", "07:20z", "OPEN"],
-              ["MRD 244", "EGLL → LOWW", "A20N", "09:05z", "BID"],
-              ["MRD 902", "KBOS → SBGR", "B78X", "22:40z", "OPEN"],
-              ["MRD 517", "OTHH → VHHH", "B77W", "18:15z", "FULL"],
-            ].map(([no, pair, eq, t, st]) => (
-              <div
-                key={no}
-                className="grid grid-cols-[auto_1fr_auto] items-center gap-4 px-5 py-4 font-mono text-xs md:grid-cols-[80px_1fr_60px_70px_60px]"
-              >
-                <span className="text-primary">{no}</span>
-                <span className="text-foreground">{pair}</span>
-                <span className="hidden text-muted-foreground md:block">{eq}</span>
-                <span className="hidden text-muted-foreground md:block">{t}</span>
-                <span className={st === "FULL" ? "text-muted-foreground" : "text-accent"}>
-                  {st}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA */}
-      <section className="mx-auto max-w-[1400px] px-5 py-24">
-        <div className="grid-plate panel flex flex-col items-start gap-6 p-10 md:flex-row md:items-center md:justify-between md:p-16">
-          <div>
-            <p className="label-tag text-accent">CREW INTAKE · OPEN</p>
-            <h2 className="mt-4 text-[clamp(2rem,5vw,4rem)] font-bold">
-              Line check starts <span className="phosphor">here</span>
+        {/* CONTACT / CTA */}
+        <section className="mx-auto max-w-[1320px] px-5 pb-28">
+          <div className="surface dune-glow overflow-hidden p-10 text-center md:p-20">
+            <p className="arabic text-3xl">انضم إلينا</p>
+            <h2 className="mt-4 text-[clamp(2rem,5vw,3.8rem)]">
+              Your seat is <span className="gold-text">waiting.</span>
             </h2>
-            <p className="mt-4 max-w-lg text-sm text-muted-foreground">
-              No hour minimum. One observed sector with a Standards pilot, then you&apos;re on the
-              roster.
+            <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground">
+              Applications are reviewed within 48 hours. No hour minimum, any simulator, free
+              forever.
             </p>
+            <Link
+              to="/join"
+              className="mt-9 inline-block rounded-full bg-accent px-9 py-4 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.04]"
+            >
+              Apply to Saudia Virtual
+            </Link>
           </div>
-          <Link
-            to="/join"
-            className="border border-primary bg-primary px-7 py-4 font-mono text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-transparent hover:text-primary"
-          >
-            File an application
-          </Link>
-        </div>
-      </section>
-    </Page>
+        </section>
+      </Page>
+    </>
   );
 }
