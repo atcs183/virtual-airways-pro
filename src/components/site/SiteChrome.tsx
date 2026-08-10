@@ -2,41 +2,58 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState, type ReactNode } from "react";
 
 const NAV = [
-  { to: "/", label: "Dispatch", code: "00" },
-  { to: "/fleet", label: "Fleet", code: "01" },
-  { to: "/network", label: "Network", code: "02" },
-  { to: "/operations", label: "Operations", code: "03" },
-  { to: "/join", label: "Crew Intake", code: "04" },
+  { to: "/", label: "Home" },
+  { to: "/fleet", label: "Fleet" },
+  { to: "/network", label: "Destinations" },
+  { to: "/operations", label: "Operations" },
+  { to: "/join", label: "Join Us" },
 ] as const;
 
-function Wordmark() {
+export function WelcomeSplash() {
+  const [gone, setGone] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setGone(true), 1600);
+    return () => clearTimeout(t);
+  }, []);
+  if (gone) return null;
   return (
-    <Link to="/" className="group flex items-baseline gap-2">
-      <span className="font-display text-xl font-bold tracking-tight text-foreground">
-        MERIDIAN
+    <div
+      aria-hidden
+      className="pointer-events-none fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-700"
+      style={{ opacity: gone ? 0 : 1 }}
+    >
+      <div className="dune-glow absolute inset-0" />
+      <p className="arabic relative text-6xl md:text-7xl">أهلاً وسهلاً</p>
+      <p className="eyebrow relative mt-4 text-muted-foreground">Welcome Aboard</p>
+      <span className="relative mt-6 h-px w-40 overflow-hidden bg-border">
+        <span className="block h-full w-1/2 animate-pulse bg-accent" />
       </span>
-      <span className="label-tag text-primary">VA · MRD</span>
-    </Link>
+    </div>
   );
 }
 
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-[1400px] items-center justify-between px-5">
-        <Wordmark />
-        <nav className="hidden items-center gap-7 md:flex">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
+      <div className="mx-auto flex h-[72px] max-w-[1320px] items-center justify-between px-5">
+        <Link to="/" className="flex items-center gap-3">
+          <span className="arabic text-2xl leading-none">السعودية</span>
+          <span className="h-6 w-px bg-border" />
+          <span className="font-display text-sm font-semibold tracking-[0.22em] text-foreground uppercase">
+            Saudia Virtual
+          </span>
+        </Link>
+        <nav className="hidden items-center gap-9 md:flex">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               activeOptions={{ exact: n.to === "/" }}
-              activeProps={{ className: "text-primary" }}
+              activeProps={{ className: "text-accent" }}
               inactiveProps={{ className: "text-muted-foreground hover:text-foreground" }}
-              className="label-tag transition-colors"
+              className="text-[13px] font-semibold tracking-wide transition-colors"
             >
-              <span className="mr-1.5 opacity-45">{n.code}</span>
               {n.label}
             </Link>
           ))}
@@ -44,30 +61,29 @@ export function Header() {
         <div className="flex items-center gap-3">
           <Link
             to="/join"
-            className="hidden border border-primary px-4 py-1.5 font-mono text-[11px] tracking-[0.18em] text-primary uppercase transition-colors hover:bg-primary hover:text-primary-foreground sm:inline-block"
+            className="hidden rounded-full bg-accent px-5 py-2.5 text-[13px] font-bold text-accent-foreground transition-transform hover:scale-[1.03] sm:inline-block"
           >
-            File Application
+            Apply Now
           </Link>
           <button
             aria-label="Toggle navigation"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="label-tag border border-border px-3 py-1.5 text-foreground md:hidden"
+            className="rounded-full border border-border px-4 py-2 text-xs font-semibold text-foreground md:hidden"
           >
             {open ? "Close" : "Menu"}
           </button>
         </div>
       </div>
       {open && (
-        <nav className="border-t border-border bg-panel px-5 py-3 md:hidden">
+        <nav className="border-t border-border bg-panel px-5 py-2 md:hidden">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
               onClick={() => setOpen(false)}
-              className="label-tag block border-b border-border py-3 text-foreground last:border-0"
+              className="block border-b border-border py-3.5 text-sm font-semibold text-foreground last:border-0"
             >
-              <span className="mr-2 opacity-45">{n.code}</span>
               {n.label}
             </Link>
           ))}
@@ -78,40 +94,32 @@ export function Header() {
 }
 
 export function Footer() {
-  const [utc, setUtc] = useState("--:--:--");
-  useEffect(() => {
-    const tick = () => setUtc(new Date().toISOString().slice(11, 19));
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
-
   return (
-    <footer className="border-t border-border">
-      <div className="mx-auto max-w-[1400px] px-5 py-14">
-        <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
+    <footer className="relative overflow-hidden border-t border-border">
+      <div className="dune-glow absolute inset-0 opacity-60" />
+      <div className="relative mx-auto max-w-[1320px] px-5 py-16">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <p className="label-tag">Operations Control Centre</p>
-            <p className="mt-3 max-w-sm font-sans text-sm text-muted-foreground">
-              Meridian Virtual is a simulation-only organisation. We are not affiliated with any
-              real-world air carrier and we sell nothing. Everything here is flown for the craft.
+            <p className="arabic text-3xl">السعودية الافتراضية</p>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Saudia Virtual is a flight-simulation community inspired by the spirit of Saudi
+              aviation. We are not affiliated with Saudia (Saudi Arabian Airlines) and nothing here
+              is for sale — every flight is flown for the love of it.
             </p>
-            <div className="mt-6 flex gap-3 font-mono text-[11px] tracking-[0.16em] text-muted-foreground uppercase">
-              <span className="border border-border px-2 py-1">MSFS</span>
-              <span className="border border-border px-2 py-1">X-Plane 12</span>
-              <span className="border border-border px-2 py-1">P3D v5</span>
-              <span className="border border-border px-2 py-1">VATSIM</span>
+            <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">
+              {["VATSIM", "IVAO", "SimBrief", "Navigraph"].map((p) => (
+                <span key={p} className="rounded-full border border-border px-3 py-1.5">
+                  {p}
+                </span>
+              ))}
             </div>
           </div>
           <div>
-            <p className="label-tag mb-4">Sections</p>
-            <ul className="space-y-2">
+            <p className="eyebrow mb-4">Explore</p>
+            <ul className="space-y-2.5">
               {NAV.map((n) => (
                 <li key={n.to}>
-                  <Link
-                    to={n.to}
-                    className="font-sans text-sm text-muted-foreground hover:text-primary"
-                  >
+                  <Link to={n.to} className="text-sm text-muted-foreground hover:text-accent">
                     {n.label}
                   </Link>
                 </li>
@@ -119,31 +127,19 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <p className="label-tag mb-4">Status Board</p>
-            <dl className="space-y-2 font-mono text-xs text-muted-foreground">
-              <div className="flex justify-between border-b border-border pb-2">
-                <dt>UTC</dt>
-                <dd className="text-primary tabular-nums">{utc}</dd>
-              </div>
-              <div className="flex justify-between border-b border-border pb-2">
-                <dt>HUB</dt>
-                <dd>EGLL / KBOS</dd>
-              </div>
-              <div className="flex justify-between border-b border-border pb-2">
-                <dt>INTAKE</dt>
-                <dd className="text-primary">OPEN</dd>
-              </div>
-              <div className="flex justify-between">
-                <dt>DISCORD</dt>
-                <dd>meridian.va</dd>
-              </div>
-            </dl>
+            <p className="eyebrow mb-4">Crew Centre</p>
+            <ul className="space-y-2.5 text-sm text-muted-foreground">
+              <li>discord.gg/saudia-virtual</li>
+              <li>ops@saudiavirtual.org</li>
+              <li>Hubs: OEJN · OERK · OEMA</li>
+              <li>Intake status: Open</li>
+            </ul>
           </div>
         </div>
       </div>
-      <div className="overflow-hidden border-t border-border">
-        <p className="font-display -mb-3 w-full px-5 pt-6 text-center leading-none font-bold tracking-tight text-panel-line [font-size:clamp(3.5rem,17vw,15rem)]">
-          MERIDIAN
+      <div className="relative overflow-hidden border-t border-border/60">
+        <p className="font-display -mb-4 w-full px-5 pt-8 text-center leading-[0.8] font-semibold tracking-tighter text-panel-line [font-size:clamp(3rem,15vw,13rem)]">
+          SAUDIA VIRTUAL
         </p>
       </div>
     </footer>
@@ -161,19 +157,21 @@ export function Page({ children }: { children: ReactNode }) {
 }
 
 export function SectionHead({
-  index,
+  eyebrow,
   title,
   intro,
+  align = "center",
 }: {
-  index: string;
-  title: string;
+  eyebrow: string;
+  title: ReactNode;
   intro?: string;
+  align?: "center" | "left";
 }) {
   return (
-    <div className="mb-10 grid gap-4 border-b border-border pb-6 md:grid-cols-[auto_1fr_1fr] md:items-end md:gap-10">
-      <span className="label-tag text-primary">{index}</span>
-      <h2 className="font-display text-[clamp(1.9rem,4.4vw,3.4rem)] font-bold">{title}</h2>
-      {intro && <p className="max-w-md text-sm text-muted-foreground">{intro}</p>}
+    <div className={`mb-14 ${align === "center" ? "mx-auto max-w-2xl text-center" : "max-w-2xl"}`}>
+      <p className="eyebrow">{eyebrow}</p>
+      <h2 className="mt-4 text-[clamp(2rem,4.4vw,3.4rem)]">{title}</h2>
+      {intro && <p className="mt-5 text-base leading-relaxed text-muted-foreground">{intro}</p>}
     </div>
   );
 }

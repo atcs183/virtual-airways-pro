@@ -1,156 +1,158 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Page, SectionHead } from "@/components/site/SiteChrome";
+import { photos } from "@/lib/photos";
 
 export const Route = createFileRoute("/operations")({
   head: () => ({
     meta: [
-      { title: "Standards, Training & Ranks — Meridian Virtual Airline" },
+      { title: "Operations — Standards, Ranks & Tracking at Saudia Virtual" },
       {
         name: "description",
         content:
-          "Meridian's Standards department: SOP library, stable-approach gates, checkride syllabus, PIREP validation and the rank ladder from Second Officer to Training Captain.",
+          "How Saudia Virtual flies: published SOPs, ACARS flight tracking, stable-approach gates and a rank ladder from Cadet to Training Captain.",
       },
-      { property: "og:title", content: "Standards & Training — Meridian Virtual" },
+      { property: "og:title", content: "Operations — Saudia Virtual" },
       {
         property: "og:description",
-        content:
-          "SOP library, checkride syllabus, ACARS-verified PIREPs and a five-step rank ladder.",
+        content: "SOPs, ACARS tracking, approach gates and the rank ladder explained.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/operations" },
+      { property: "og:image", content: photos.kingdomTower },
+      { name: "twitter:image", content: photos.kingdomTower },
     ],
     links: [{ rel: "canonical", href: "/operations" }],
   }),
   component: Operations,
 });
 
+const PILLARS = [
+  {
+    t: "Published SOPs",
+    d: "Every type carries a written flow: cockpit prep, taxi, takeoff briefing, descent planning and shutdown. Read once, fly forever.",
+  },
+  {
+    t: "ACARS Tracking",
+    d: "The client records the whole sector — fuel, altitude profile, flap and gear schedule, touchdown rate — and files it as your PIREP.",
+  },
+  {
+    t: "Human Review",
+    d: "Widebody upgrades and Captain promotions are signed off by the training department, not by a counter hitting a threshold.",
+  },
+];
+
 const RANKS = [
-  ["SO", "Second Officer", "0 hrs", "A20N / B738 · domestic and intra-Europe turns"],
-  ["FO", "First Officer", "35 hrs", "Adds transatlantic narrowbody and A339 right seat"],
-  ["SFO", "Senior First Officer", "120 hrs", "A339 / B78X command training begins"],
-  ["CPT", "Captain", "300 hrs + checkride", "B77W unlocked · may sign off observed sectors"],
-  ["TC", "Training Captain", "By appointment", "Runs line checks and writes SOP amendments"],
+  { r: "Cadet", h: "0–25 h", t: "A320neo (domestic sectors only)" },
+  { r: "Second Officer", h: "25–100 h", t: "A320neo · A321XLR" },
+  { r: "First Officer", h: "100–300 h", t: "+ A330-300 · 787-9" },
+  { r: "Senior First Officer", h: "300–600 h", t: "+ Cargo division 747-8F" },
+  { r: "Captain", h: "600–1,200 h", t: "+ 777-300ER flagship" },
+  { r: "Training Captain", h: "1,200 h +", t: "Full fleet · mentoring duties" },
 ];
 
 const GATES = [
-  ["1,000 ft IMC", "Configured, on speed, on path, checklist complete"],
-  ["500 ft VMC", "Same gates. Not met = go around, no discussion"],
-  ["Landing rate", "Logged, not scored — a smooth touchdown off profile is still a bust"],
-  ["Fuel policy", "Trip + contingency + alternate + 30 min final reserve, filed on the OFP"],
-];
-
-const SYLLABUS = [
-  {
-    n: "01",
-    t: "Written",
-    d: "Twenty questions on the Meridian FOM: fuel policy, diversion criteria, radio discipline, PIREP filing.",
-  },
-  {
-    n: "02",
-    t: "Observed sector",
-    d: "One live leg with a Training Captain on the jumpseat, flown on VATSIM or IVAO where coverage allows.",
-  },
-  {
-    n: "03",
-    t: "Debrief",
-    d: "ACARS trace reviewed line by line: flap schedule, thrust setting, descent planning, approach stability.",
-  },
-  {
-    n: "04",
-    t: "Release to line",
-    d: "Crew ID issued, roster access granted, first bid window opens the following Monday 00:01z.",
-  },
+  ["1,000 ft AAL", "Landing configuration set, on profile, on speed"],
+  ["500 ft AAL", "Sink rate below 1,000 fpm, wings level, cleared to land"],
+  ["Touchdown", "Target below 250 fpm; above 600 fpm triggers a debrief"],
+  ["Taxi in", "Single-engine taxi where the SOP permits, APU on stand"],
 ];
 
 function Operations() {
   return (
     <Page>
-      <section className="relative border-b border-border">
-        <div className="scanline absolute inset-0 opacity-50" />
-        <div className="relative mx-auto max-w-[1400px] px-5 py-24 md:py-32">
-          <p className="label-tag text-primary">SECTION 03 · STANDARDS</p>
-          <h1 className="h-display mt-6 max-w-4xl">
-            The manual is
+      <section className="relative isolate overflow-hidden border-b border-border">
+        <img
+          src={photos.kingdomTower}
+          alt="Modern Riyadh skyline architecture at dusk"
+          width={1200}
+          height={800}
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
+        />
+        <div className="deck-fade absolute inset-0" />
+        <div className="relative mx-auto max-w-[1320px] px-5 py-28 md:py-36">
+          <p className="arabic text-2xl">العمليات</p>
+          <h1 className="h-display mt-3 max-w-3xl">
+            Serious flying.
             <br />
-            the culture.
+            <span className="gold-text">No gatekeeping.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Meridian publishes a Flight Operations Manual, amends it in public, and holds every rank
-            to the same gates. Standards exists to make the flying better, not to hand out demerits.
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+            We hold a real standard in the air and keep the paperwork out of your way on the ground.
+            Fly when you can; nobody here counts your absences.
           </p>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-5 py-20">
+      <section className="mx-auto max-w-[1320px] px-5 py-24">
         <SectionHead
-          index="SOP / GATES"
-          title="Non-negotiables"
-          intro="Four lines from the FOM that every Meridian pilot flies to, from the first observed sector onward."
+          eyebrow="How we operate"
+          title="Three commitments"
+          intro="The framework behind every sector flown under an SVA callsign."
         />
-        <div className="grid gap-px bg-panel-line md:grid-cols-2">
-          {GATES.map(([k, v]) => (
-            <div key={k} className="bg-background p-8 md:p-10">
-              <p className="font-display text-3xl font-bold text-accent">{k}</p>
-              <p className="mt-3 text-sm text-muted-foreground">{v}</p>
-            </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {PILLARS.map((p, i) => (
+            <motion.article
+              key={p.t}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              className="surface p-8"
+            >
+              <span className="font-display text-sm font-semibold text-accent">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-4 text-xl">{p.t}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.d}</p>
+            </motion.article>
           ))}
         </div>
       </section>
 
       <section className="border-y border-border bg-panel">
-        <div className="mx-auto max-w-[1400px] px-5 py-20">
-          <SectionHead index="INTAKE / SYLLABUS" title="Line check, four stages" />
-          <ol className="grid gap-px bg-panel-line md:grid-cols-4">
-            {SYLLABUS.map((s, i) => (
-              <motion.li
-                key={s.n}
-                initial={{ opacity: 0, y: 14 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.06 }}
-                className="bg-panel p-8"
+        <div className="mx-auto max-w-[1320px] px-5 py-24">
+          <SectionHead eyebrow="Progression" title="From Cadet to Training Captain" />
+          <div className="surface overflow-hidden">
+            {RANKS.map((r, i) => (
+              <div
+                key={r.r}
+                className="grid gap-2 border-b border-border px-7 py-6 last:border-0 md:grid-cols-[1.2fr_0.8fr_1.6fr] md:items-center"
               >
-                <p className="font-display text-5xl font-bold text-primary/40">{s.n}</p>
-                <h3 className="mt-4 text-xl font-bold">{s.t}</h3>
-                <p className="mt-3 text-sm text-muted-foreground">{s.d}</p>
-              </motion.li>
+                <div className="flex items-center gap-4">
+                  <span className="font-display text-sm font-semibold text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <h3 className="text-lg">{r.r}</h3>
+                </div>
+                <p className="text-sm font-semibold text-foreground">{r.h}</p>
+                <p className="text-sm text-muted-foreground">{r.t}</p>
+              </div>
             ))}
-          </ol>
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-5 py-20">
+      <section className="mx-auto max-w-[1320px] px-5 py-24">
         <SectionHead
-          index="RANKS"
-          title="Progression ladder"
-          intro="Hours are logged from validated PIREPs only. Time spent on the ground in the sim does not count."
+          eyebrow="Stable approach"
+          title="The gates we hold"
+          intro="A go-around is never held against a pilot here. Continuing an unstable approach is."
         />
-        <div className="divide-y divide-panel-line border-y border-panel-line">
-          {RANKS.map(([code, name, hrs, priv]) => (
-            <div
-              key={code}
-              className="grid gap-3 py-6 transition-colors hover:bg-panel md:grid-cols-[90px_1fr_170px_1.3fr] md:items-center md:gap-8 md:px-5"
-            >
-              <span className="font-display text-3xl font-bold text-primary">{code}</span>
-              <span className="text-lg font-bold uppercase">{name}</span>
-              <span className="font-mono text-xs tracking-widest text-accent uppercase">{hrs}</span>
-              <span className="text-sm text-muted-foreground">{priv}</span>
+        <div className="grid gap-6 md:grid-cols-2">
+          {GATES.map(([g, d]) => (
+            <div key={g} className="surface p-7">
+              <p className="text-[11px] font-bold tracking-[0.22em] text-accent uppercase">{g}</p>
+              <p className="mt-3 text-base text-foreground">{d}</p>
             </div>
           ))}
         </div>
-      </section>
-
-      <section className="mx-auto max-w-[1400px] px-5 pb-24">
-        <div className="grid-plate panel flex flex-col items-start gap-6 p-10 md:flex-row md:items-center md:justify-between md:p-14">
-          <h2 className="max-w-lg text-[clamp(1.7rem,3.6vw,2.6rem)] font-bold">
-            Read the FOM before you fly it — it ships with your intake pack.
-          </h2>
+        <div className="mt-14 text-center">
           <Link
             to="/join"
-            className="border border-primary bg-primary px-7 py-4 font-mono text-xs tracking-[0.2em] text-primary-foreground uppercase transition-colors hover:bg-transparent hover:text-primary"
+            className="rounded-full bg-accent px-8 py-4 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.04]"
           >
-            File an application
+            Start your application
           </Link>
         </div>
       </section>
