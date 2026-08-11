@@ -54,30 +54,30 @@ const HUBS = [
 const REGIONS = [
   {
     r: "Domestic Kingdom",
-    n: 28,
+    n: 8,
     cities: ["Jeddah", "Riyadh", "Madinah", "Dammam", "Abha", "AlUla", "Tabuk", "Gassim"],
   },
   {
     r: "Middle East & Levant",
-    n: 22,
+    n: 8,
     cities: ["Dubai", "Doha", "Muscat", "Kuwait", "Amman", "Beirut", "Cairo", "Bahrain"],
   },
   {
     r: "Europe",
-    n: 24,
+    n: 8,
     cities: ["London", "Paris", "Frankfurt", "Milan", "Madrid", "Geneva", "Athens", "Istanbul"],
   },
   {
     r: "Asia Pacific",
-    n: 26,
+    n: 8,
     cities: ["Singapore", "Delhi", "Jakarta", "Manila", "Kuala Lumpur", "Dhaka", "Karachi", "Colombo"],
   },
   {
     r: "Africa",
-    n: 14,
+    n: 6,
     cities: ["Khartoum", "Nairobi", "Addis Ababa", "Casablanca", "Tunis", "Lagos"],
   },
-  { r: "Americas", n: 8, cities: ["New York", "Washington", "Toronto", "Los Angeles", "São Paulo"] },
+  { r: "Americas", n: 5, cities: ["New York", "Washington", "Toronto", "Los Angeles", "São Paulo"] },
 ];
 
 const SHOWCASE = [
