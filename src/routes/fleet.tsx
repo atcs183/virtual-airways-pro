@@ -169,10 +169,10 @@ function Fleet() {
             Liveries, checklists and soundpacks ship with your crew ID.
           </h2>
           <Link
-            to="/join"
+            to="/network"
             className="rounded-full bg-accent px-8 py-4 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.04]"
           >
-            Join the Crew
+            Explore the network
           </Link>
         </div>
       </section>

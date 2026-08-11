@@ -6,7 +6,7 @@ const NAV = [
   { to: "/fleet", label: "Fleet" },
   { to: "/network", label: "Destinations" },
   { to: "/operations", label: "Operations" },
-  { to: "/join", label: "Join Us" },
+  
 ] as const;
 
 export function WelcomeSplash() {
@@ -60,11 +60,12 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            to="/join"
+            to="/network"
             className="hidden rounded-full bg-accent px-5 py-2.5 text-[13px] font-bold text-accent-foreground transition-transform hover:scale-[1.03] sm:inline-block"
           >
-            Apply Now
+            Our Network
           </Link>
+
           <button
             aria-label="Toggle navigation"
             aria-expanded={open}
