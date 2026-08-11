@@ -85,7 +85,7 @@ const FLEET = [
     frames: "8",
     role: "Long-haul mainline",
     range: "6,330 nm",
-    seats: "",
+    seats: "357",
     addon: "Asobo Boeing 787-10",
     note: "Transatlantic and long haul backbone. One of the biggest aircraft in the Saudia fleet!",
   },
