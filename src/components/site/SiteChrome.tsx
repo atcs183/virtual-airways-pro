@@ -9,28 +9,6 @@ const NAV = [
   
 ] as const;
 
-export function WelcomeSplash() {
-  const [gone, setGone] = useState(false);
-  useEffect(() => {
-    const t = setTimeout(() => setGone(true), 1600);
-    return () => clearTimeout(t);
-  }, []);
-  if (gone) return null;
-  return (
-    <div
-      aria-hidden
-      className="pointer-events-none fixed inset-0 z-[100] flex flex-col items-center justify-center bg-background transition-opacity duration-700"
-      style={{ opacity: gone ? 0 : 1 }}
-    >
-      <div className="dune-glow absolute inset-0" />
-      <p className="arabic relative text-6xl md:text-7xl">أهلاً وسهلاً</p>
-      <p className="eyebrow relative mt-4 text-muted-foreground">Welcome Aboard</p>
-      <span className="relative mt-6 h-px w-40 overflow-hidden bg-border">
-        <span className="block h-full w-1/2 animate-pulse bg-accent" />
-      </span>
-    </div>
-  );
-}
 
 export function Header() {
   const [open, setOpen] = useState(false);
