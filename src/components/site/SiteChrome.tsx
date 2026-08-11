@@ -63,7 +63,7 @@ export function Header() {
             to="/network"
             className="hidden rounded-full bg-accent px-5 py-2.5 text-[13px] font-bold text-accent-foreground transition-transform hover:scale-[1.03] sm:inline-block"
           >
-            Our Network
+            Join Us!
           </Link>
 
           <button
@@ -130,9 +130,13 @@ export function Footer() {
           <div>
             <p className="eyebrow mb-4">Crew Centre</p>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
-              <li>discord.gg/saudia-virtual</li>
-              <li>ops@saudiavirtual.org</li>
-              <li>Hubs: OEJN · OERK · OEMA</li>
+              <li>
+                <a href="https://discord.gg/nuuJpGcGYK" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">
+                  Discord Community
+                </a>
+              </li>
+              <li>saudiavirtualva@gmail.com</li>
+              <li>Hubs: OEJN · OERK</li>
               <li>Intake status: Open</li>
             </ul>
           </div>

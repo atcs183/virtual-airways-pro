@@ -78,13 +78,13 @@ const DIVISIONS = [
   },
   {
     t: "Saudia Cargo",
-    d: "Heavy freight rotations on the 747-8F and 777F — Jeddah to Hong Kong, Frankfurt and Chicago.",
+    d: "Coming soon",
     img: photos.cargo,
     tag: "SVC",
   },
   {
     t: "Al-Khaleej Charter",
-    d: "VIP and executive movements with complete freedom. No fixed routes, no restrictions, anywhere on earth.",
+    d: "Coming soon",
     img: photos.bizjet,
     tag: "AKC",
   },
@@ -354,14 +354,13 @@ function Home() {
               Your seat is <span className="gold-text">waiting.</span>
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-base text-muted-foreground">
-              Applications are reviewed within 48 hours. No hour minimum, any simulator, free
-              forever.
+              Why wait? Join us today!
             </p>
             <Link
-              to="/fleet"
+              to="/network"
               className="mt-9 inline-block rounded-full bg-accent px-9 py-4 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.04]"
             >
-              Meet the Fleet
+              Join Saudia Virtual
             </Link>
           </div>
         </section>
