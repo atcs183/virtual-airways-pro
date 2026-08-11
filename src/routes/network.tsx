@@ -10,12 +10,12 @@ export const Route = createFileRoute("/network")({
       {
         name: "description",
         content:
-          "120+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
+          "40+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
       },
       { property: "og:title", content: "Destinations — Saudia Virtual" },
       {
         property: "og:description",
-        content: "Three hubs, six continents, 120+ cities on the current schedule.",
+        content: "Three hubs, six continents, 40+ cities on the current schedule.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/network" },
@@ -54,30 +54,30 @@ const HUBS = [
 const REGIONS = [
   {
     r: "Domestic Kingdom",
-    n: 28,
+    n: 8,
     cities: ["Jeddah", "Riyadh", "Madinah", "Dammam", "Abha", "AlUla", "Tabuk", "Gassim"],
   },
   {
     r: "Middle East & Levant",
-    n: 22,
+    n: 8,
     cities: ["Dubai", "Doha", "Muscat", "Kuwait", "Amman", "Beirut", "Cairo", "Bahrain"],
   },
   {
     r: "Europe",
-    n: 24,
+    n: 8,
     cities: ["London", "Paris", "Frankfurt", "Milan", "Madrid", "Geneva", "Athens", "Istanbul"],
   },
   {
     r: "Asia Pacific",
-    n: 26,
+    n: 8,
     cities: ["Singapore", "Delhi", "Jakarta", "Manila", "Kuala Lumpur", "Dhaka", "Karachi", "Colombo"],
   },
   {
     r: "Africa",
-    n: 14,
+    n: 6,
     cities: ["Khartoum", "Nairobi", "Addis Ababa", "Casablanca", "Tunis", "Lagos"],
   },
-  { r: "Americas", n: 8, cities: ["New York", "Washington", "Toronto", "Los Angeles", "São Paulo"] },
+  { r: "Americas", n: 5, cities: ["New York", "Washington", "Toronto", "Los Angeles", "São Paulo"] },
 ];
 
 const SHOWCASE = [
@@ -106,7 +106,7 @@ function Network() {
         <div className="relative mx-auto max-w-[1320px] px-5 py-28 md:py-36">
           <p className="arabic text-2xl">الوجهات</p>
           <h1 className="h-display mt-3 max-w-3xl">
-            120+ cities.
+            40+ cities.
             <br />
             <span className="gold-text">Six continents.</span>
           </h1>

@@ -10,7 +10,7 @@ export const Route = createFileRoute("/operations")({
       {
         name: "description",
         content:
-          "How Saudia Virtual flies: published SOPs, ACARS flight tracking, stable-approach gates and a rank ladder from Cadet to Training Captain.",
+          "How Saudia Virtual flies: published SOPs, ACARS flight tracking and stable-approach gates.",
       },
       { property: "og:title", content: "Operations — Saudia Virtual" },
       {
@@ -42,14 +42,6 @@ const PILLARS = [
   },
 ];
 
-const RANKS = [
-  { r: "Cadet", h: "0–25 h", t: "A320neo (domestic sectors only)" },
-  { r: "Second Officer", h: "25–100 h", t: "A320neo · A321XLR" },
-  { r: "First Officer", h: "100–300 h", t: "+ A330-300 · 787-9" },
-  { r: "Senior First Officer", h: "300–600 h", t: "+ Cargo division 747-8F" },
-  { r: "Captain", h: "600–1,200 h", t: "+ 777-300ER flagship" },
-  { r: "Training Captain", h: "1,200 h +", t: "Full fleet · mentoring duties" },
-];
 
 const GATES = [
   ["1,000 ft AAL", "Landing configuration set, on profile, on speed"],
@@ -110,28 +102,6 @@ function Operations() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-panel">
-        <div className="mx-auto max-w-[1320px] px-5 py-24">
-          <SectionHead eyebrow="Progression" title="From Cadet to Training Captain" />
-          <div className="surface overflow-hidden">
-            {RANKS.map((r, i) => (
-              <div
-                key={r.r}
-                className="grid gap-2 border-b border-border px-7 py-6 last:border-0 md:grid-cols-[1.2fr_0.8fr_1.6fr] md:items-center"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="font-display text-sm font-semibold text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="text-lg">{r.r}</h3>
-                </div>
-                <p className="text-sm font-semibold text-foreground">{r.h}</p>
-                <p className="text-sm text-muted-foreground">{r.t}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="mx-auto max-w-[1320px] px-5 py-24">
         <SectionHead
