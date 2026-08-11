@@ -107,13 +107,6 @@ export function Footer() {
               aviation. We are not affiliated with Saudia (Saudi Arabian Airlines) and nothing here
               is for sale — every flight is flown for the love of it.
             </p>
-            <div className="mt-6 flex flex-wrap gap-2 text-[11px] font-semibold tracking-widest text-muted-foreground uppercase">
-              {["VATSIM", "IVAO", "SimBrief", "Navigraph"].map((p) => (
-                <span key={p} className="rounded-full border border-border px-3 py-1.5">
-                  {p}
-                </span>
-              ))}
-            </div>
           </div>
           <div>
             <p className="eyebrow mb-4">Explore</p>
