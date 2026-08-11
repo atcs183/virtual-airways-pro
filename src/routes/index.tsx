@@ -10,7 +10,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Saudia Virtual flies real-world Saudia schedules across 120+ destinations on MSFS, X-Plane 12 and P3D. Mainline, cargo and executive divisions. Pilot intake open.",
+          "Saudia Virtual flies real-world Saudia schedules across 120+ destinations on MSFS, X-Plane 12 and P3D.Currently only the Mainline Airline is available but subsidiary airlines will be added as the VA grows.",
       },
       { property: "og:title", content: "Saudia Virtual — Passion for Saudi Arabia" },
       {
@@ -45,15 +45,11 @@ export const Route = createFileRoute("/")({
 const DIFFERENCE = [
   {
     t: "Real-World Sync",
-    d: "Timetables mirror published Saudia operations — Hajj and Umrah season surges, cargo rotations and seasonal European city pairs included.",
+    d: "Timetables mirror published Saudia operations — Like Hajj and Umrah season surges.",
   },
   {
     t: "Automated Tracking",
-    d: "Our ACARS client logs the flight for you: fuel burn, landing rate, flap schedule. File the PIREP the moment the parking brake is set.",
-  },
-  {
-    t: "Al-Khaleej Freedom",
-    d: "Charter division pilots fly anywhere on the globe. No route limits, no minimum sectors, no bidding queue.",
+    d: "Using Vamsys, We are able to have very accurate tracking for every part of your flight from pushback to arrival!",
   },
   {
     t: "Cabin Immersion",
@@ -61,11 +57,7 @@ const DIFFERENCE = [
   },
   {
     t: "A Real Community",
-    d: "An active Discord with group flights every Thursday night and close ties to Arabian vACC for genuine ATC coverage.",
-  },
-  {
-    t: "Ranks That Mean Something",
-    d: "From Cadet to Training Captain. Hours are earned in the air and reviewed by a human before the widebody unlocks.",
+    d: "An active Discord with dedicated pilots that try and help make the VA more active every day.",
   },
 ];
 
@@ -75,18 +67,6 @@ const DIVISIONS = [
     d: "Fly the flagship schedule from Jeddah, Riyadh and Madinah to 120+ cities across five continents.",
     img: photos.kingdomTower,
     tag: "SVA",
-  },
-  {
-    t: "Saudia Cargo",
-    d: "Coming soon",
-    img: photos.cargo,
-    tag: "SVC",
-  },
-  {
-    t: "Al-Khaleej Charter",
-    d: "Coming soon",
-    img: photos.bizjet,
-    tag: "AKC",
   },
 ];
 
