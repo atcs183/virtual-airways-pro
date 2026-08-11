@@ -70,14 +70,27 @@ const REGIONS = [
   {
     r: "Asia Pacific",
     n: 8,
-    cities: ["Singapore", "Delhi", "Jakarta", "Manila", "Kuala Lumpur", "Dhaka", "Karachi", "Colombo"],
+    cities: [
+      "Singapore",
+      "Delhi",
+      "Jakarta",
+      "Manila",
+      "Kuala Lumpur",
+      "Dhaka",
+      "Karachi",
+      "Colombo",
+    ],
   },
   {
     r: "Africa",
     n: 6,
     cities: ["Khartoum", "Nairobi", "Addis Ababa", "Casablanca", "Tunis", "Lagos"],
   },
-  { r: "Americas", n: 5, cities: ["New York", "Washington", "Toronto", "Los Angeles", "São Paulo"] },
+  {
+    r: "Americas",
+    n: 5,
+    cities: ["New York", "Washington", "Toronto", "Los Angeles", "São Paulo"],
+  },
 ];
 
 const SHOWCASE = [

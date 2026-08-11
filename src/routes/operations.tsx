@@ -42,7 +42,6 @@ const PILLARS = [
   },
 ];
 
-
 const GATES = [
   ["1,000 ft AAL", "Landing configuration set, on profile, on speed"],
   ["500 ft AAL", "Sink rate below 1,000 fpm, wings level, cleared to land"],
@@ -101,7 +100,6 @@ function Operations() {
           ))}
         </div>
       </section>
-
 
       <section className="mx-auto max-w-[1320px] px-5 py-24">
         <SectionHead
