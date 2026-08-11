@@ -102,28 +102,6 @@ function Operations() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-panel">
-        <div className="mx-auto max-w-[1320px] px-5 py-24">
-          <SectionHead eyebrow="Progression" title="From Cadet to Training Captain" />
-          <div className="surface overflow-hidden">
-            {RANKS.map((r, i) => (
-              <div
-                key={r.r}
-                className="grid gap-2 border-b border-border px-7 py-6 last:border-0 md:grid-cols-[1.2fr_0.8fr_1.6fr] md:items-center"
-              >
-                <div className="flex items-center gap-4">
-                  <span className="font-display text-sm font-semibold text-accent">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <h3 className="text-lg">{r.r}</h3>
-                </div>
-                <p className="text-sm font-semibold text-foreground">{r.h}</p>
-                <p className="text-sm text-muted-foreground">{r.t}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="mx-auto max-w-[1320px] px-5 py-24">
         <SectionHead
