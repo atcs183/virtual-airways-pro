@@ -137,7 +137,7 @@ export function Footer() {
               </li>
               <li>saudiavirtualva@gmail.com</li>
               <li>Hubs: OEJN · OERK</li>
-              <li>Intake status: Open</li>
+              
             </ul>
           </div>
         </div>
