@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Page, SectionHead, WelcomeSplash } from "@/components/site/SiteChrome";
+import { Page, SectionHead } from "@/components/site/SiteChrome";
 import { photos } from "@/lib/photos";
 
 export const Route = createFileRoute("/")({
@@ -112,9 +112,7 @@ const MARQUEE = [
 
 function Home() {
   return (
-    <>
-      <WelcomeSplash />
-      <Page>
+    <Page>
         {/* HERO */}
         <section className="relative isolate min-h-[92vh] overflow-hidden">
           <img
@@ -364,7 +362,6 @@ function Home() {
             </Link>
           </div>
         </section>
-      </Page>
-    </>
+    </Page>
   );
 }
