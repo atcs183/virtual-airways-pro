@@ -94,7 +94,6 @@ const DESTINATIONS = [
   { city: "Jeddah", country: "Saudi Arabia", img: photos.jeddah },
   { city: "Riyadh", country: "Saudi Arabia", img: photos.riyadh },
   { city: "Madinah", country: "Saudi Arabia", img: photos.madinah },
-  { city: "AlUla", country: "Saudi Arabia", img: photos.alula },
   { city: "Abha", country: "Saudi Arabia", img: photos.abha },
   { city: "London", country: "United Kingdom", img: photos.london },
   { city: "New York", country: "United States", img: photos.newyork },
