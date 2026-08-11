@@ -42,14 +42,6 @@ const PILLARS = [
   },
 ];
 
-const RANKS = [
-  { r: "Cadet", h: "0–25 h", t: "A320neo (domestic sectors only)" },
-  { r: "Second Officer", h: "25–100 h", t: "A320neo · A321XLR" },
-  { r: "First Officer", h: "100–300 h", t: "+ A330-300 · 787-9" },
-  { r: "Senior First Officer", h: "300–600 h", t: "+ Cargo division 747-8F" },
-  { r: "Captain", h: "600–1,200 h", t: "+ 777-300ER flagship" },
-  { r: "Training Captain", h: "1,200 h +", t: "Full fleet · mentoring duties" },
-];
 
 const GATES = [
   ["1,000 ft AAL", "Landing configuration set, on profile, on speed"],
