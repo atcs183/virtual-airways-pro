@@ -8,7 +8,6 @@ const NAV = [
   { to: "/operations", label: "Operations" },
 ] as const;
 
-
 export function Header() {
   const [open, setOpen] = useState(false);
   return (
@@ -101,13 +100,17 @@ export function Footer() {
             <p className="eyebrow mb-4">Crew Centre</p>
             <ul className="space-y-2.5 text-sm text-muted-foreground">
               <li>
-                <a href="https://discord.gg/nuuJpGcGYK" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">
+                <a
+                  href="https://discord.gg/nuuJpGcGYK"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
                   Discord Community
                 </a>
               </li>
               <li>saudiavirtualva@gmail.com</li>
               <li>Hubs: OEJN · OERK</li>
-              
             </ul>
           </div>
         </div>
