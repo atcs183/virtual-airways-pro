@@ -10,7 +10,7 @@ export const Route = createFileRoute("/operations")({
       {
         name: "description",
         content:
-          "How Saudia Virtual flies: published SOPs, ACARS flight tracking, stable-approach gates and a rank ladder from Cadet to Training Captain.",
+          "How Saudia Virtual flies: published SOPs, ACARS flight tracking and stable-approach gates.",
       },
       { property: "og:title", content: "Operations — Saudia Virtual" },
       {
