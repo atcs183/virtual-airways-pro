@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as FleetRouteImport } from './routes/fleet'
-import { Route as JoinRouteImport } from './routes/join'
 import { Route as NetworkRouteImport } from './routes/network'
 import { Route as OperationsRouteImport } from './routes/operations'
 
@@ -23,11 +22,6 @@ const IndexRoute = IndexRouteImport.update({
 const FleetRoute = FleetRouteImport.update({
   id: '/fleet',
   path: '/fleet',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const JoinRoute = JoinRouteImport.update({
-  id: '/join',
-  path: '/join',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NetworkRoute = NetworkRouteImport.update({
@@ -44,14 +38,12 @@ const OperationsRoute = OperationsRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/fleet': typeof FleetRoute
-  '/join': typeof JoinRoute
   '/network': typeof NetworkRoute
   '/operations': typeof OperationsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/fleet': typeof FleetRoute
-  '/join': typeof JoinRoute
   '/network': typeof NetworkRoute
   '/operations': typeof OperationsRoute
 }
@@ -59,22 +51,20 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/fleet': typeof FleetRoute
-  '/join': typeof JoinRoute
   '/network': typeof NetworkRoute
   '/operations': typeof OperationsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/fleet' | '/join' | '/network' | '/operations'
+  fullPaths: '/' | '/fleet' | '/network' | '/operations'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/fleet' | '/join' | '/network' | '/operations'
-  id: '__root__' | '/' | '/fleet' | '/join' | '/network' | '/operations'
+  to: '/' | '/fleet' | '/network' | '/operations'
+  id: '__root__' | '/' | '/fleet' | '/network' | '/operations'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FleetRoute: typeof FleetRoute
-  JoinRoute: typeof JoinRoute
   NetworkRoute: typeof NetworkRoute
   OperationsRoute: typeof OperationsRoute
 }
@@ -93,13 +83,6 @@ declare module '@tanstack/react-router' {
       path: '/fleet'
       fullPath: '/fleet'
       preLoaderRoute: typeof FleetRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/join': {
-      id: '/join'
-      path: '/join'
-      fullPath: '/join'
-      preLoaderRoute: typeof JoinRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/network': {
@@ -122,7 +105,6 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FleetRoute: FleetRoute,
-  JoinRoute: JoinRoute,
   NetworkRoute: NetworkRoute,
   OperationsRoute: OperationsRoute,
 }
