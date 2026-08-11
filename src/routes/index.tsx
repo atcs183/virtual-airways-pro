@@ -16,7 +16,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Real-world schedules, three operating divisions and an active Discord community. Join the crew.",
+          "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
@@ -41,15 +41,6 @@ export const Route = createFileRoute("/")({
   }),
   component: Home,
 });
-
-const STATS = [
-  { v: "120+", k: "Destinations" },
-  { v: "54,300+", k: "PIREPs filed" },
-  { v: "8.4M+", k: "Miles flown" },
-  { v: "690+", k: "Active pilots" },
-];
-
-const PARTNERS = ["VATSIM", "IVAO", "SimBrief", "Navigraph", "Arabian vACC", "FSHud", "AeroSoft"];
 
 const DIFFERENCE = [
   {
@@ -155,10 +146,10 @@ function Home() {
               </p>
               <div className="mt-10 flex flex-wrap items-center gap-6">
                 <Link
-                  to="/join"
+                  to="/network"
                   className="rounded-full bg-accent px-8 py-4 text-sm font-bold text-accent-foreground shadow-[var(--glow-gold)] transition-transform hover:scale-[1.04]"
                 >
-                  Join the Crew
+                  Explore the Network
                 </Link>
                 <Link
                   to="/operations"
@@ -169,40 +160,6 @@ function Home() {
               </div>
             </motion.div>
 
-            <div className="mt-20 grid grid-cols-2 gap-y-10 border-t border-border/70 pt-10 md:grid-cols-4">
-              {STATS.map((s, i) => (
-                <motion.div
-                  key={s.k}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + i * 0.09, duration: 0.5 }}
-                >
-                  <p className="font-display text-4xl font-semibold text-accent md:text-5xl">
-                    {s.v}
-                  </p>
-                  <p className="mt-2 text-xs font-semibold tracking-[0.22em] text-muted-foreground uppercase">
-                    {s.k}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* PARTNERS */}
-        <section className="border-y border-border bg-panel py-10">
-          <p className="text-center text-[11px] font-bold tracking-[0.34em] text-muted-foreground uppercase">
-            In partnership with
-          </p>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-x-12 gap-y-5 px-5">
-            {PARTNERS.map((p) => (
-              <span
-                key={p}
-                className="font-display text-lg font-semibold tracking-wide text-muted-foreground/70 transition-colors hover:text-foreground"
-              >
-                {p}
-              </span>
-            ))}
           </div>
         </section>
 
@@ -251,6 +208,55 @@ function Home() {
                 Chief Executive Officer · Saudia Virtual
               </p>
             </div>
+          </div>
+        </section>
+
+        {/* DESTINATIONS */}
+        <section className="mx-auto max-w-[1320px] px-5 py-28">
+          <SectionHead
+            eyebrow="Live network"
+            title={
+              <>
+                Where to <span className="gold-text">next?</span>
+              </>
+            }
+            intro="From the Red Sea coast to six continents — a preview of the cities on the current schedule."
+          />
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {DESTINATIONS.map((d) => (
+              <motion.div
+                key={d.city}
+                initial={{ opacity: 0, scale: 0.97 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45 }}
+                className="group relative overflow-hidden rounded-[var(--radius-xl)] border border-border"
+              >
+                <img
+                  src={d.img}
+                  alt={`${d.city}, ${d.country}`}
+                  width={900}
+                  height={1100}
+                  loading="lazy"
+                  className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="deck-fade absolute inset-0" />
+                <div className="absolute inset-x-0 bottom-0 p-5">
+                  <p className="text-[11px] font-bold tracking-[0.22em] text-accent uppercase">
+                    {d.country}
+                  </p>
+                  <p className="font-display mt-1 text-lg font-semibold">{d.city}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <Link
+              to="/network"
+              className="rounded-full border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
+            >
+              View the full network
+            </Link>
           </div>
         </section>
 
@@ -340,55 +346,6 @@ function Home() {
           </div>
         </div>
 
-        {/* DESTINATIONS */}
-        <section className="mx-auto max-w-[1320px] px-5 py-28">
-          <SectionHead
-            eyebrow="Live network"
-            title={
-              <>
-                Where to <span className="gold-text">next?</span>
-              </>
-            }
-            intro="From the Red Sea coast to six continents — a preview of the cities on the current schedule."
-          />
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {DESTINATIONS.map((d) => (
-              <motion.div
-                key={d.city}
-                initial={{ opacity: 0, scale: 0.97 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45 }}
-                className="group relative overflow-hidden rounded-[var(--radius-xl)] border border-border"
-              >
-                <img
-                  src={d.img}
-                  alt={`${d.city}, ${d.country}`}
-                  width={900}
-                  height={1100}
-                  loading="lazy"
-                  className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="deck-fade absolute inset-0" />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <p className="text-[11px] font-bold tracking-[0.22em] text-accent uppercase">
-                    {d.country}
-                  </p>
-                  <p className="font-display mt-1 text-lg font-semibold">{d.city}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <div className="mt-12 text-center">
-            <Link
-              to="/network"
-              className="rounded-full border border-border px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-accent hover:text-accent"
-            >
-              View the full network
-            </Link>
-          </div>
-        </section>
-
         {/* CONTACT / CTA */}
         <section className="mx-auto max-w-[1320px] px-5 pb-28">
           <div className="surface dune-glow overflow-hidden p-10 text-center md:p-20">
@@ -401,10 +358,10 @@ function Home() {
               forever.
             </p>
             <Link
-              to="/join"
+              to="/fleet"
               className="mt-9 inline-block rounded-full bg-accent px-9 py-4 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.04]"
             >
-              Apply to Saudia Virtual
+              Meet the Fleet
             </Link>
           </div>
         </section>
