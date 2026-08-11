@@ -106,7 +106,7 @@ function Network() {
         <div className="relative mx-auto max-w-[1320px] px-5 py-28 md:py-36">
           <p className="arabic text-2xl">الوجهات</p>
           <h1 className="h-display mt-3 max-w-3xl">
-            120+ cities.
+            40+ cities.
             <br />
             <span className="gold-text">Six continents.</span>
           </h1>
