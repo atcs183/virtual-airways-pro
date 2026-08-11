@@ -10,12 +10,12 @@ export const Route = createFileRoute("/network")({
       {
         name: "description",
         content:
-          "120+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
+          "40+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
       },
       { property: "og:title", content: "Destinations — Saudia Virtual" },
       {
         property: "og:description",
-        content: "Three hubs, six continents, 120+ cities on the current schedule.",
+        content: "Three hubs, six continents, 40+ cities on the current schedule.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/network" },
