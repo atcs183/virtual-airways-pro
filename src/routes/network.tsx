@@ -217,10 +217,10 @@ function Network() {
         </div>
         <div className="mt-12 text-center">
           <Link
-            to="/join"
+            to="/fleet"
             className="rounded-full bg-accent px-8 py-4 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.04]"
           >
-            Fly these routes with us
+            See the fleet
           </Link>
         </div>
       </section>

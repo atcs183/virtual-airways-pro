@@ -149,10 +149,10 @@ function Operations() {
         </div>
         <div className="mt-14 text-center">
           <Link
-            to="/join"
+            to="/network"
             className="rounded-full bg-accent px-8 py-4 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.04]"
           >
-            Start your application
+            Explore the network
           </Link>
         </div>
       </section>
