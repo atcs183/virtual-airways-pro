@@ -10,7 +10,7 @@ export const Route = createFileRoute("/network")({
       {
         name: "description",
         content:
-          "103 current Saudia destinations across 27 domestic and international markets, based on the August 2026 scheduled network.",
+          "103 current Saudia destinations across 27 domestic and 76 international destinations, based on the August 2026 scheduled network.",
       },
       { property: "og:title", content: "Destinations — Saudia Virtual" },
       {
@@ -87,12 +87,12 @@ const REGIONS = [
   },
   {
     r: "Asia Pacific",
-    n: 25,
+    n: 24,
     cities: [
       "Dhaka", "Beijing Daxing", "Guangzhou", "Bengaluru", "Hyderabad", "Kochi", "Kozhikode",
       "Lucknow", "Mumbai", "New Delhi", "Denpasar", "Jakarta", "Tokyo", "Kuala Lumpur", "Malé",
       "Islamabad", "Karachi", "Lahore", "Multan", "Peshawar", "Manila", "Singapore", "Bangkok",
-      "Phuket", "Barcelona",
+      "Phuket",
     ],
   },
   {
