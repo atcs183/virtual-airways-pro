@@ -78,14 +78,28 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Saudia Virtual" },
+      { title: "Saudia Virtual — Passion for Saudi Arabia" },
       {
         name: "description",
-        content: "Procedure-driven virtual airline for flight simulation.",
+        content: "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
       },
       { property: "og:site_name", content: "Saudia Virtual" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "Saudia Virtual — Passion for Saudi Arabia" },
+      {
+        property: "og:description",
+        content: "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
+      },
+      { property: "og:url", content: "https://saudiavia.org/" },
+      { property: "og:image", content: "https://saudiavia.org/images/preview.png" },
+      { property: "og:image:alt", content: "Saudia Virtual" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Saudia Virtual — Passion for Saudi Arabia" },
+      {
+        name: "twitter:description",
+        content: "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
+      },
+      { name: "twitter:image", content: "https://saudiavia.org/images/preview.png" },
     ],
     links: [
       {
