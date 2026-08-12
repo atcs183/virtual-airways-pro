@@ -39,12 +39,14 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <Link
-            to="/network"
+          <a
+            href="https://discord.gg/nuuJpGcGYK"
+            target="_blank"
+            rel="noreferrer"
             className="hidden rounded-full bg-accent px-5 py-2.5 text-[13px] font-bold text-accent-foreground transition-transform hover:scale-[1.03] sm:inline-block"
           >
             Join Us!
-          </Link>
+          </a>
 
           <button
             aria-label="Toggle navigation"
