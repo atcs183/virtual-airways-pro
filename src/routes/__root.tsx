@@ -9,9 +9,13 @@ import {
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { injectSpeedInsights } from "@vercel/speed-insights";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+
+// Initialize Speed Insights
+injectSpeedInsights();
 
 function NotFoundComponent() {
   return (
@@ -81,14 +85,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Saudia Virtual — Passion for Saudi Arabia" },
       {
         name: "description",
-        content: "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
+        content:
+          "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
       },
       { property: "og:site_name", content: "Saudia Virtual" },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Saudia Virtual — Passion for Saudi Arabia" },
       {
         property: "og:description",
-        content: "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
+        content:
+          "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
       },
       { property: "og:url", content: "https://saudiavia.org/" },
       { property: "og:image", content: "https://saudiavia.org/images/preview.png" },
@@ -97,7 +103,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "Saudia Virtual — Passion for Saudi Arabia" },
       {
         name: "twitter:description",
-        content: "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
+        content:
+          "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
       },
       { name: "twitter:image", content: "https://saudiavia.org/images/preview.png" },
     ],
