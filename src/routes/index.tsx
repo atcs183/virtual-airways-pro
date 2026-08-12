@@ -124,7 +124,11 @@ function Home() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="max-w-3xl"
           >
-            <p className="arabic text-2xl md:text-3xl">أهلاً وسهلاً</p>
+            <img
+              src="/images/saudia_virtual.png"
+              alt="Saudia Virtual"
+              className="mb-5 h-auto w-[220px] object-contain md:w-[300px]"
+            />
             <h1 className="h-display mt-4">
               Saudia Virtual
               <br />
