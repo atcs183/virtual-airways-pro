@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Page, SectionHead } from "@/components/site/SiteChrome";
 import { photos } from "@/lib/photos";
@@ -10,12 +10,12 @@ export const Route = createFileRoute("/operations")({
       {
         name: "description",
         content:
-          "How Saudia Virtual flies: published SOPs, ACARS flight tracking and stable-approach gates.",
+          "How Saudia Virtual flies: published SOPs, ACARS flight tracking and human review.",
       },
       { property: "og:title", content: "Operations — Saudia Virtual" },
       {
         property: "og:description",
-        content: "SOPs, ACARS tracking, approach gates and the rank ladder explained.",
+        content: "SOPs, ACARS tracking and the operations framework explained.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/operations" },
@@ -40,13 +40,6 @@ const PILLARS = [
     t: "Human Review",
     d: "Widebody upgrades and Captain promotions are signed off by the training department, not by a counter hitting a threshold.",
   },
-];
-
-const GATES = [
-  ["1,000 ft AAL", "Landing configuration set, on profile, on speed"],
-  ["500 ft AAL", "Sink rate below 1,000 fpm, wings level, cleared to land"],
-  ["Touchdown", "Target below 250 fpm; above 600 fpm triggers a debrief"],
-  ["Taxi in", "Single-engine taxi where the SOP permits, APU on stand"],
 ];
 
 function Operations() {
@@ -98,30 +91,6 @@ function Operations() {
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.d}</p>
             </motion.article>
           ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-[1320px] px-5 py-24">
-        <SectionHead
-          eyebrow="Stable approach"
-          title="The gates we hold"
-          intro="A go-around is never held against a pilot here. Continuing an unstable approach is."
-        />
-        <div className="grid gap-6 md:grid-cols-2">
-          {GATES.map(([g, d]) => (
-            <div key={g} className="surface p-7">
-              <p className="text-[11px] font-bold tracking-[0.22em] text-accent uppercase">{g}</p>
-              <p className="mt-3 text-base text-foreground">{d}</p>
-            </div>
-          ))}
-        </div>
-        <div className="mt-14 text-center">
-          <Link
-            to="/network"
-            className="rounded-full bg-accent px-8 py-4 text-sm font-bold text-accent-foreground transition-transform hover:scale-[1.04]"
-          >
-            Explore the network
-          </Link>
         </div>
       </section>
     </Page>
