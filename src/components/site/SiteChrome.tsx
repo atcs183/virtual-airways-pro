@@ -13,12 +13,16 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-[72px] max-w-[1320px] items-center justify-between px-5">
-        <Link to="/" className="flex items-center">
+        <Link to="/" className="flex items-center gap-3">
           <img
             src="/images/saudia_virtual.png"
             alt="Saudia Virtual"
             className="h-10 w-auto object-contain md:h-11"
           />
+          <span className="h-6 w-px bg-border" />
+          <span className="font-display text-sm font-semibold tracking-[0.22em] text-foreground uppercase">
+            Saudia Virtual
+          </span>
         </Link>
         <nav className="hidden items-center gap-9 md:flex">
           {NAV.map((n) => (
