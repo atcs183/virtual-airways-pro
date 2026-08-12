@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Page, SectionHead } from "@/components/site/SiteChrome";
 import { photos } from "@/lib/photos";
-import heroSaudia from "@/assets/hero-saudia.jpg";
+import heroAsset from "@/assets/saudia-a321.avif.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -96,8 +96,8 @@ function Home() {
       {/* HERO */}
       <section className="relative isolate min-h-[92vh] overflow-hidden">
         <img
-          src={heroSaudia}
-          alt="Saudia widebody airliner in green and gold livery climbing above sunset clouds"
+          src={heroAsset.url}
+          alt="Saudia Airbus A321 in green and gold livery in flight above clouds"
           width={1920}
           height={1080}
           className="absolute inset-0 h-full w-full object-cover opacity-45"
