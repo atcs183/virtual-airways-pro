@@ -57,8 +57,11 @@ const REGIONS = [
   },
   {
     r: "Middle East & Gulf",
-    n: 7,
-    cities: ["Bahrain", "Amman", "Kuwait City", "Salalah", "Doha", "Abu Dhabi", "Dubai"],
+    n: 11,
+    cities: [
+      "Bahrain", "Amman", "Kuwait City", "Salalah", "Doha", "Abu Dhabi", "Dubai",
+      "Alexandria", "Cairo", "El Alamein", "Sharm el-Sheikh",
+    ],
   },
   {
     r: "Europe",
@@ -71,11 +74,11 @@ const REGIONS = [
   },
   {
     r: "Africa",
-    n: 20,
+    n: 17,
     cities: [
-      "Algiers", "Constantine", "Oran", "Alexandria", "Cairo", "El Alamein", "Sharm el-Sheikh",
-      "Addis Ababa", "Nairobi", "Mauritius", "Agadir", "Casablanca", "Fes", "Marrakech", "Tangier",
-      "Kano", "Enfidha", "Monastir", "Tunis", "Lagos",
+      "Algiers", "Constantine", "Oran", "Addis Ababa", "Nairobi", "Mauritius", "Agadir",
+      "Casablanca", "Fes", "Marrakech", "Tangier", "Kano", "Enfidha", "Monastir", "Tunis", "Lagos",
+      "Cotonou",
     ],
   },
   {
