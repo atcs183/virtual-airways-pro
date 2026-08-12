@@ -66,7 +66,7 @@ const FLEET = [
     role: "Long-thin narrowbody",
     range: "4,700 nm",
     seats: "180",
-    addon: "iniBuilds A321XLR",
+    addon: "iniBuilds A321XLR - Toliss A321XLR",
     note: "Reaches deeper into Europe and South Asia on narrowbody economics.",
   },
   {
