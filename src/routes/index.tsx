@@ -69,6 +69,18 @@ const DIVISIONS = [
     img: photos.kingdomTower,
     tag: "SVA",
   },
+  {
+    t: "Saudia Cargo",
+    d: "Coming soon",
+    img: photos.cargo,
+    tag: "SVA",
+  },
+  {
+    t: "flyadeal",
+    d: "Coming soon",
+    img: photos.flyadeal,
+    tag: "FAD",
+  },
 ];
 
 const DESTINATIONS = [
