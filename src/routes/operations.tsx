@@ -10,12 +10,12 @@ export const Route = createFileRoute("/operations")({
       {
         name: "description",
         content:
-          "How Saudia Virtual flies: published SOPs, ACARS flight tracking and human review.",
+          "How Saudia Virtual flies: operations standards, ACARS flight tracking and human review.",
       },
       { property: "og:title", content: "Operations — Saudia Virtual" },
       {
         property: "og:description",
-        content: "SOPs, ACARS tracking and the operations framework explained.",
+        content: "Operations standards, ACARS tracking and the training framework explained.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/operations" },
@@ -29,8 +29,8 @@ export const Route = createFileRoute("/operations")({
 
 const PILLARS = [
   {
-    t: "Published SOPs",
-    d: "Every type carries a written flow: cockpit prep, taxi, takeoff briefing, descent planning and shutdown. Read once, fly forever.",
+    t: "SOP Development",
+    d: "Our formal SOPs are still being developed. We are building them around realistic Saudia procedures before publishing them to pilots.",
   },
   {
     t: "ACARS Tracking",
