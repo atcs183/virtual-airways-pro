@@ -56,7 +56,7 @@ const REGIONS = [
     ],
   },
   {
-    r: "Middle East",
+    r: "Middle East & Gulf",
     n: 7,
     cities: ["Bahrain", "Amman", "Kuwait City", "Salalah", "Doha", "Abu Dhabi", "Dubai"],
   },
@@ -80,12 +80,12 @@ const REGIONS = [
   },
   {
     r: "Asia Pacific",
-    n: 25,
+    n: 24,
     cities: [
       "Dhaka", "Beijing Daxing", "Guangzhou", "Bengaluru", "Hyderabad", "Kochi", "Kozhikode",
       "Lucknow", "Mumbai", "New Delhi", "Denpasar", "Jakarta", "Tokyo", "Kuala Lumpur", "Malé",
       "Islamabad", "Karachi", "Lahore", "Multan", "Peshawar", "Manila", "Singapore", "Bangkok",
-      "Phuket", "Barcelona",
+      "Phuket",
     ],
   },
   {
