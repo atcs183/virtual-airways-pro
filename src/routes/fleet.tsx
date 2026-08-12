@@ -10,7 +10,7 @@ export const Route = createFileRoute("/fleet")({
       {
         name: "description",
         content:
-          "The Saudia Virtual fleet: A320neo, A321XLR, A330-300, 787-9, 777-300ER and the 747-8F freighter. Specs, roles and recommended add-ons for MSFS and X-Plane.",
+          "The Saudia Virtual fleet: A320, A321, A321neo, A321XLR, A330-300, 787-9, 787-10 and 777-300ER. Specs, roles and recommended add-ons for MSFS and X-Plane.",
       },
       { property: "og:title", content: "Fleet — Saudia Virtual" },
       {
@@ -20,8 +20,8 @@ export const Route = createFileRoute("/fleet")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/fleet" },
-      { property: "og:image", content: photos.flightDeckMood },
-      { name: "twitter:image", content: photos.flightDeckMood },
+      { property: "og:image", content: photos.riyadhWide },
+      { name: "twitter:image", content: photos.riyadhWide },
     ],
     links: [{ rel: "canonical", href: "/fleet" }],
   }),
@@ -46,8 +46,28 @@ const FLEET = [
     role: "Thin long-thin routes",
     range: "4,700 nm",
     seats: "195",
-    addon: "iniBuilds A321XLR",
+    addon: "iniBuilds A321neo",
     note: "Opens secondary European cities — Milan, Vienna, Manchester — without committing a widebody.",
+  },
+  {
+    type: "A321",
+    name: "Airbus A321",
+    frames: "15",
+    role: "High-density regional",
+    range: "3,200 nm",
+    seats: "220",
+    addon: "Aerosoft A321 · Toliss A321",
+    note: "Peak-season capacity on Jeddah, Riyadh and Cairo trunk routes.",
+  },
+  {
+    type: "A21X",
+    name: "Airbus A321XLR",
+    frames: "10",
+    role: "Long-thin narrowbody",
+    range: "4,700 nm",
+    seats: "180",
+    addon: "iniBuilds A321XLR",
+    note: "Reaches deeper into Europe and South Asia on narrowbody economics.",
   },
   {
     type: "A333",
@@ -96,9 +116,9 @@ function Fleet() {
     <Page>
       <section className="relative isolate overflow-hidden border-b border-border">
         <img
-          src={photos.flightDeckMood}
-          alt="Aerial view of a coastal city at dusk from an aircraft"
-          width={1400}
+          src={photos.riyadhWide}
+          alt="Riyadh skyline in Saudi Arabia at dusk"
+          width={1600}
           height={900}
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
@@ -106,7 +126,7 @@ function Fleet() {
         <div className="relative mx-auto max-w-[1320px] px-5 py-28 md:py-36">
           <p className="arabic text-2xl">الأسطول</p>
           <h1 className="h-display mt-3 max-w-3xl">
-            Six types.
+            Eight types.
             <br />
             <span className="gold-text">One standard.</span>
           </h1>

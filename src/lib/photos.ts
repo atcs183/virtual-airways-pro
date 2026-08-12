@@ -22,4 +22,5 @@ export const photos = {
   athens: u("photo-1603565816030-6b389eeb23cb", 900),
   muscat: u("photo-1597734187998-e1931acfe2ed", 900),
   kingdomTower: u("photo-1651428016256-70b39e3483da", 1200),
+  riyadhWide: u("photo-1663900108404-a05e8bf82cda", 1600),
 };
