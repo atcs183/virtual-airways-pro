@@ -106,7 +106,7 @@ function Fleet() {
         <div className="relative mx-auto max-w-[1320px] px-5 py-28 md:py-36">
           <p className="arabic text-2xl">الأسطول</p>
           <h1 className="h-display mt-3 max-w-3xl">
-            Six types.
+            Eight types.
             <br />
             <span className="gold-text">One standard.</span>
           </h1>
