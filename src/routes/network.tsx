@@ -10,17 +10,17 @@ export const Route = createFileRoute("/network")({
       {
         name: "description",
         content:
-          "40+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
+          "39+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
       },
       { property: "og:title", content: "Destinations — Saudia Virtual" },
       {
         property: "og:description",
-        content: "Three hubs, six continents, 40+ cities on the current schedule.",
+        content: "Three hubs, six continents, 39+ cities on the current schedule.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/network" },
-      { property: "og:image", content: photos.alula },
-      { name: "twitter:image", content: photos.alula },
+      { property: "og:image", content: photos.jeddah },
+      { name: "twitter:image", content: photos.jeddah },
     ],
     links: [{ rel: "canonical", href: "/network" }],
   }),
@@ -46,7 +46,7 @@ const HUBS = [
     icao: "OEMA",
     city: "Madinah",
     name: "Prince Mohammad bin Abdulaziz",
-    d: "Umrah and Hajz season focus city with seasonal widebody surges from Asia and North Africa.",
+    d: "Umrah and Hajj season focus city with seasonal widebody surges from Asia and North Africa.",
     img: photos.madinah,
   },
 ];
@@ -54,8 +54,8 @@ const HUBS = [
 const REGIONS = [
   {
     r: "Domestic Kingdom",
-    n: 8,
-    cities: ["Jeddah", "Riyadh", "Madinah", "Dammam", "Abha", "AlUla", "Tabuk", "Gassim"],
+    n: 7,
+    cities: ["Jeddah", "Riyadh", "Madinah", "Dammam", "Abha", "Tabuk", "Gassim"],
   },
   {
     r: "Middle East & Levant",
@@ -94,7 +94,6 @@ const REGIONS = [
 ];
 
 const SHOWCASE = [
-  { city: "AlUla", code: "ULH", img: photos.alula, note: "Sandstone canyons and Elephant Rock" },
   { city: "Makkah region", code: "JED", img: photos.makkah, note: "The Umrah and Hajj corridor" },
   { city: "Abha", code: "AHB", img: photos.abha, note: "Highland approach at 6,800 ft AMSL" },
   { city: "Dubai", code: "DXB", img: photos.dubai, note: "Six daily Gulf shuttle rotations" },
@@ -109,8 +108,8 @@ function Network() {
     <Page>
       <section className="relative isolate overflow-hidden border-b border-border">
         <img
-          src={photos.alula}
-          alt="Elephant Rock sandstone formation in AlUla, Saudi Arabia"
+          src={photos.jeddah}
+          alt="Jeddah, Saudi Arabia"
           width={1400}
           height={900}
           className="absolute inset-0 h-full w-full object-cover opacity-35"
@@ -119,7 +118,7 @@ function Network() {
         <div className="relative mx-auto max-w-[1320px] px-5 py-28 md:py-36">
           <p className="arabic text-2xl">الوجهات</p>
           <h1 className="h-display mt-3 max-w-3xl">
-            40+ cities.
+            39+ cities.
             <br />
             <span className="gold-text">Six continents.</span>
           </h1>
