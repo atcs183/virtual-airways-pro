@@ -10,12 +10,12 @@ export const Route = createFileRoute("/network")({
       {
         name: "description",
         content:
-          "39+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
+          "50+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
       },
       { property: "og:title", content: "Destinations — Saudia Virtual" },
       {
         property: "og:description",
-        content: "Three hubs, six continents, 39+ cities on the current schedule.",
+        content: "Three hubs, six continents, 50+ cities on the current schedule.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/network" },
@@ -118,7 +118,7 @@ function Network() {
         <div className="relative mx-auto max-w-[1320px] px-5 py-28 md:py-36">
           <p className="arabic text-2xl">الوجهات</p>
           <h1 className="h-display mt-3 max-w-3xl">
-            39+ cities.
+            50+ cities.
             <br />
             <span className="gold-text">Six continents.</span>
           </h1>
