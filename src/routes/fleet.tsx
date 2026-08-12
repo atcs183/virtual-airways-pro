@@ -46,7 +46,7 @@ const FLEET = [
     role: "Thin long-thin routes",
     range: "4,700 nm",
     seats: "195",
-    addon: "iniBuilds A321XLR",
+    addon: "iniBuilds A321neo",
     note: "Opens secondary European cities — Milan, Vienna, Manchester — without committing a widebody.",
   },
   {
