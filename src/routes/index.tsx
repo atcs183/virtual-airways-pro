@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Page, SectionHead } from "@/components/site/SiteChrome";
 import { photos } from "@/lib/photos";
-import heroSaudia from "@/assets/hero-saudia.jpg";
+import heroAsset from "@/assets/saudia-a321.avif.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
