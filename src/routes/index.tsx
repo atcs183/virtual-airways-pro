@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "motion/react";
 import { Page, SectionHead } from "@/components/site/SiteChrome";
 import { photos } from "@/lib/photos";
+import flyadealAsset from "@/assets/flyadeal-a320.jpg.asset.json";
 import heroAsset from "@/assets/saudia-a321.avif.asset.json";
 
 export const Route = createFileRoute("/")({
@@ -78,7 +79,7 @@ const DIVISIONS = [
   {
     t: "flyadeal",
     d: "Coming soon",
-    img: photos.flyadeal,
+    img: flyadealAsset.url,
     tag: "FAD",
   },
 ];
