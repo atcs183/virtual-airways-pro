@@ -10,12 +10,12 @@ export const Route = createFileRoute("/network")({
       {
         name: "description",
         content:
-          "50+ destinations across six continents from hubs at Jeddah (OEJN), Riyadh (OERK) and Madinah (OEMA). Explore the Saudia Virtual route network.",
+          "103 current Saudia destinations across 27 domestic and international markets, based on the August 2026 scheduled network.",
       },
       { property: "og:title", content: "Destinations — Saudia Virtual" },
       {
         property: "og:description",
-        content: "Three hubs, six continents, 50+ cities on the current schedule.",
+        content: "100+ current Saudia destinations across domestic and international markets.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/network" },
@@ -32,75 +32,84 @@ const HUBS = [
     icao: "OEJN",
     city: "Jeddah",
     name: "King Abdulaziz International",
-    d: "The Red Sea gateway and pilgrim hub. Long-haul departures west and the whole cargo operation.",
+    d: "The Red Sea gateway and major Saudia hub for domestic, regional and long-haul operations.",
     img: photos.jeddah,
   },
   {
     icao: "OERK",
     city: "Riyadh",
     name: "King Khalid International",
-    d: "Capital base for business traffic — dense Gulf shuttle plus flagship 777 services east.",
+    d: "The capital hub with dense domestic service, Gulf connectivity and international long-haul flying.",
     img: photos.riyadh,
   },
   {
     icao: "OEMA",
     city: "Madinah",
     name: "Prince Mohammad bin Abdulaziz",
-    d: "Umrah and Hajj season focus city with seasonal widebody surges from Asia and North Africa.",
+    d: "A major Saudia base with domestic service and seasonal pilgrimage traffic.",
     img: photos.madinah,
   },
 ];
 
 const REGIONS = [
   {
-    r: "Domestic Kingdom",
-    n: 7,
-    cities: ["Jeddah", "Riyadh", "Madinah", "Dammam", "Abha", "Tabuk", "Gassim"],
+    r: "Domestic Saudi Arabia",
+    n: 27,
+    cities: [
+      "Abha", "Al Qaisumah / Hafr Al-Batin", "Al Ula", "Al Wajh", "Al-Baha", "Al-Jawf", "Arar",
+      "Bisha", "Dammam", "Dawadmi", "Gassim", "Gurayat", "Ha'il", "Jeddah", "Jizan", "Medina",
+      "Najran", "Neom", "Rafha", "Red Sea", "Riyadh", "Sharurah", "Ta'if", "Tabuk", "Turaif",
+      "Wadi al-Dawasir", "Yanbu",
+    ],
   },
   {
-    r: "Middle East & Levant",
-    n: 8,
-    cities: ["Dubai", "Doha", "Muscat", "Kuwait", "Amman", "Beirut", "Cairo", "Bahrain"],
+    r: "Middle East",
+    n: 7,
+    cities: ["Bahrain", "Amman", "Kuwait City", "Salalah", "Doha", "Abu Dhabi", "Dubai"],
   },
   {
     r: "Europe",
-    n: 8,
-    cities: ["London", "Paris", "Frankfurt", "Milan", "Madrid", "Geneva", "Athens", "Istanbul"],
-  },
-  {
-    r: "Asia Pacific",
-    n: 8,
+    n: 22,
     cities: [
-      "Singapore",
-      "Delhi",
-      "Jakarta",
-      "Manila",
-      "Kuala Lumpur",
-      "Dhaka",
-      "Karachi",
-      "Colombo",
+      "Vienna", "Nice", "Paris", "Frankfurt", "Munich", "Athens", "Mykonos", "Milan", "Rome",
+      "Moscow", "Amsterdam", "Barcelona", "Madrid", "Málaga", "Geneva", "Zürich", "Antalya",
+      "Bodrum", "Istanbul", "Birmingham", "London", "Manchester",
     ],
   },
   {
     r: "Africa",
-    n: 6,
-    cities: ["Khartoum", "Nairobi", "Addis Ababa", "Casablanca", "Tunis", "Lagos"],
+    n: 20,
+    cities: [
+      "Algiers", "Constantine", "Oran", "Alexandria", "Cairo", "El Alamein", "Sharm el-Sheikh",
+      "Addis Ababa", "Nairobi", "Mauritius", "Agadir", "Casablanca", "Fes", "Marrakech", "Tangier",
+      "Kano", "Enfidha", "Monastir", "Tunis", "Lagos",
+    ],
+  },
+  {
+    r: "Asia Pacific",
+    n: 25,
+    cities: [
+      "Dhaka", "Beijing Daxing", "Guangzhou", "Bengaluru", "Hyderabad", "Kochi", "Kozhikode",
+      "Lucknow", "Mumbai", "New Delhi", "Denpasar", "Jakarta", "Tokyo", "Kuala Lumpur", "Malé",
+      "Islamabad", "Karachi", "Lahore", "Multan", "Peshawar", "Manila", "Singapore", "Bangkok",
+      "Phuket", "Barcelona",
+    ],
   },
   {
     r: "Americas",
-    n: 5,
-    cities: ["New York", "Washington", "Toronto", "Los Angeles", "São Paulo"],
+    n: 3,
+    cities: ["Toronto", "New York", "Washington"],
   },
 ];
 
 const SHOWCASE = [
-  { city: "Makkah region", code: "JED", img: photos.makkah, note: "The Umrah and Hajj corridor" },
-  { city: "Abha", code: "AHB", img: photos.abha, note: "Highland approach at 6,800 ft AMSL" },
-  { city: "Dubai", code: "DXB", img: photos.dubai, note: "Six daily Gulf shuttle rotations" },
-  { city: "Athens", code: "ATH", img: photos.athens, note: "Seasonal summer A321XLR service" },
-  { city: "Muscat", code: "MCT", img: photos.muscat, note: "Coastal Gulf hop, 90 minutes block" },
-  { city: "Delhi", code: "DEL", img: photos.delhi, note: "Nightly 787-9 subcontinent service" },
-  { city: "New York", code: "JFK", img: photos.newyork, note: "Flagship 777-300ER transatlantic" },
+  { city: "Jeddah", code: "JED", img: photos.jeddah, note: "Major Red Sea hub" },
+  { city: "Abha", code: "AHB", img: photos.abha, note: "Saudi highland destination" },
+  { city: "Dubai", code: "DXB", img: photos.dubai, note: "Major Gulf international route" },
+  { city: "Athens", code: "ATH", img: photos.athens, note: "European scheduled service" },
+  { city: "Muscat", code: "MCT", img: photos.muscat, note: "Oman international service" },
+  { city: "Delhi", code: "DEL", img: photos.delhi, note: "Major Indian market" },
+  { city: "New York", code: "JFK", img: photos.newyork, note: "Flagship U.S. route" },
 ];
 
 function Network() {
@@ -118,13 +127,13 @@ function Network() {
         <div className="relative mx-auto max-w-[1320px] px-5 py-28 md:py-36">
           <p className="arabic text-2xl">الوجهات</p>
           <h1 className="h-display mt-3 max-w-3xl">
-            50+ cities.
+            100+ destinations.
             <br />
-            <span className="gold-text">Six continents.</span>
+            <span className="gold-text">Real Saudia network.</span>
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-            The schedule follows real-world Saudia operations, with seasonal Hajj and Umrah capacity
-            layered on top of the year-round network.
+            The network below mirrors the currently scheduled Saudia destination list, including
+            domestic, regional, European, African, Asian and North American markets.
           </p>
         </div>
       </section>
@@ -171,7 +180,7 @@ function Network() {
           <SectionHead
             eyebrow="Coverage"
             title="The network by region"
-            intro="Counts reflect the current published schedule. Charter pilots may operate outside it entirely."
+            intro="Destination groups are based on the current Saudia scheduled network; seasonal destinations can vary by date."
           />
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {REGIONS.map((r) => (
@@ -197,7 +206,7 @@ function Network() {
       </section>
 
       <section className="mx-auto max-w-[1320px] px-5 py-24">
-        <SectionHead eyebrow="Featured legs" title="Worth blocking out an evening for" />
+        <SectionHead eyebrow="Featured routes" title="Real destinations worth flying" />
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {SHOWCASE.map((s) => (
             <motion.div
