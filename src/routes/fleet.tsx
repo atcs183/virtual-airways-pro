@@ -10,7 +10,7 @@ export const Route = createFileRoute("/fleet")({
       {
         name: "description",
         content:
-          "The Saudia Virtual fleet: A320neo, A321XLR, A330-300, 787-9, 777-300ER and the 747-8F freighter. Specs, roles and recommended add-ons for MSFS and X-Plane.",
+          "The Saudia Virtual fleet: A320, A321, A321neo, A321XLR, A330-300, 787-9, 787-10 and 777-300ER. Specs, roles and recommended add-ons for MSFS and X-Plane.",
       },
       { property: "og:title", content: "Fleet — Saudia Virtual" },
       {
