@@ -96,9 +96,9 @@ function Fleet() {
     <Page>
       <section className="relative isolate overflow-hidden border-b border-border">
         <img
-          src={photos.flightDeckMood}
-          alt="Aerial view of a coastal city at dusk from an aircraft"
-          width={1400}
+          src={photos.riyadhWide}
+          alt="Riyadh skyline in Saudi Arabia at dusk"
+          width={1600}
           height={900}
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
