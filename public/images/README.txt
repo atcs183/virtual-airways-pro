@@ -1,0 +1,1 @@
+Static images used by the website are stored in this directory.
