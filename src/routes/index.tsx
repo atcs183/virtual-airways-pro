@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "Saudia Virtual flies real-world Saudia schedules across 120+ destinations on MSFS, X-Plane 12 and P3D.Currently only the Mainline Airline is available but subsidiary airlines will be added as the VA grows.",
+          "Saudia Virtual flies real-world Saudia schedules across 100+ destinations on MSFS, X-Plane 12 and P3D. Currently only the Mainline Airline is available but subsidiary airlines will be added as the VA grows.",
       },
       { property: "og:title", content: "Saudia Virtual — Passion for Saudi Arabia" },
       {
@@ -21,12 +21,16 @@ export const Route = createFileRoute("/")({
           "Real-world schedules, three operating divisions and an active Discord community. Fly with us.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/" },
-      { property: "og:image", content: photos.heroWing },
-      { name: "twitter:image", content: photos.heroWing },
+      { property: "og:url", content: "https://saudiavia.org/" },
+      { property: "og:image", content: "https://saudiavia.org/images/preview.png?v=2" },
+      { property: "og:image:secure_url", content: "https://saudiavia.org/images/preview.png?v=2" },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "1800" },
+      { property: "og:image:height", content: "400" },
+      { name: "twitter:image", content: "https://saudiavia.org/images/preview.png?v=2" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [{ rel: "canonical", href: "https://saudiavia.org/" }],
     scripts: [
       {
         type: "application/ld+json",
@@ -35,8 +39,8 @@ export const Route = createFileRoute("/")({
           "@type": "Organization",
           name: "Saudia Virtual",
           description:
-            "Flight simulation virtual airline inspired by Saudi Arabian aviation, operating real-world schedules across 120+ destinations.",
-          url: "/",
+            "Flight simulation virtual airline inspired by Saudi Arabian aviation, operating real-world schedules across 100+ destinations.",
+          url: "https://saudiavia.org/",
         }),
       },
     ],
