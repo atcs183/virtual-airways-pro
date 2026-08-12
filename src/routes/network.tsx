@@ -10,7 +10,7 @@ export const Route = createFileRoute("/network")({
       {
         name: "description",
         content:
-          "103 current Saudia destinations across 27 domestic and 76 international destinations, based on the August 2026 scheduled network.",
+          "103 current Saudia destinations across 27 domestic and international markets, based on the August 2026 scheduled network.",
       },
       { property: "og:title", content: "Destinations — Saudia Virtual" },
       {
@@ -41,13 +41,6 @@ const HUBS = [
     name: "King Khalid International",
     d: "The capital hub with dense domestic service, Gulf connectivity and international long-haul flying.",
     img: photos.riyadh,
-  },
-  {
-    icao: "OEMA",
-    city: "Madinah",
-    name: "Prince Mohammad bin Abdulaziz",
-    d: "A major Saudia base with domestic service and seasonal pilgrimage traffic.",
-    img: photos.madinah,
   },
 ];
 
@@ -87,12 +80,12 @@ const REGIONS = [
   },
   {
     r: "Asia Pacific",
-    n: 24,
+    n: 25,
     cities: [
       "Dhaka", "Beijing Daxing", "Guangzhou", "Bengaluru", "Hyderabad", "Kochi", "Kozhikode",
       "Lucknow", "Mumbai", "New Delhi", "Denpasar", "Jakarta", "Tokyo", "Kuala Lumpur", "Malé",
       "Islamabad", "Karachi", "Lahore", "Multan", "Peshawar", "Manila", "Singapore", "Bangkok",
-      "Phuket",
+      "Phuket", "Barcelona",
     ],
   },
   {
@@ -139,8 +132,8 @@ function Network() {
       </section>
 
       <section className="mx-auto max-w-[1320px] px-5 py-24">
-        <SectionHead eyebrow="Bases" title="Three hubs in the Kingdom" />
-        <div className="grid gap-6 md:grid-cols-3">
+        <SectionHead eyebrow="Bases" title="Two hubs in the Kingdom" />
+        <div className="grid gap-6 md:grid-cols-2">
           {HUBS.map((h) => (
             <motion.article
               key={h.icao}
