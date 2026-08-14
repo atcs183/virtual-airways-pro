@@ -40,9 +40,7 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-3">
           <a
-            href="https://vamsys.io/register/saudiavirtual"
-            target="_blank"
-            rel="noreferrer"
+            href="/vsva"
             className="hidden rounded-full bg-accent px-5 py-2.5 text-[13px] font-bold text-accent-foreground transition-transform hover:scale-[1.03] sm:inline-block"
           >
             Join Us!
