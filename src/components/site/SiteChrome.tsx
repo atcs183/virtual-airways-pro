@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -76,6 +76,52 @@ export function Header() {
   );
 }
 
+function PrivacyNotice() {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    try {
+      setVisible(window.localStorage.getItem("sva-privacy-notice") !== "accepted");
+    } catch {
+      setVisible(true);
+    }
+  }, []);
+
+  if (!visible) return null;
+
+  const dismiss = () => {
+    try {
+      window.localStorage.setItem("sva-privacy-notice", "accepted");
+    } catch {
+      // Keep the notice visible only for the current page session when storage is unavailable.
+    }
+    setVisible(false);
+  };
+
+  return (
+    <div className="fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-[900px] rounded-2xl border border-border bg-background/95 p-5 shadow-2xl backdrop-blur-xl md:flex md:items-center md:gap-6">
+      <div className="flex-1">
+        <p className="text-sm font-semibold text-foreground">Privacy notice</p>
+        <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+          Saudia Virtual uses this site to provide information about the VA. Registration and login are
+          handled by external services such as VAMSYS. Read our{" "}
+          <Link to="/privacy" className="font-semibold text-accent hover:underline">
+            Privacy Policy
+          </Link>
+          {" "}for details about how information may be processed.
+        </p>
+      </div>
+      <button
+        type="button"
+        onClick={dismiss}
+        className="mt-4 rounded-full bg-accent px-5 py-2.5 text-xs font-bold text-accent-foreground md:mt-0"
+      >
+        I understand
+      </button>
+    </div>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-border">
@@ -100,6 +146,11 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link to="/privacy" className="text-sm text-muted-foreground hover:text-accent">
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -136,6 +187,7 @@ export function Page({ children }: { children: ReactNode }) {
       <Header />
       <main className="flex-1">{children}</main>
       <Footer />
+      <PrivacyNotice />
     </div>
   );
 }
