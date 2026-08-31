@@ -39,14 +39,12 @@ export function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-3">
-          <a
-            href="https://vamsys.io/register/vsva"
-            target="_blank"
-            rel="noreferrer"
+          <Link
+            to="/join"
             className="hidden rounded-full bg-accent px-5 py-2.5 text-[13px] font-bold text-accent-foreground transition-transform hover:scale-[1.03] sm:inline-block"
           >
             Join Us!
-          </a>
+          </Link>
 
           <button
             aria-label="Toggle navigation"
@@ -70,6 +68,13 @@ export function Header() {
               {n.label}
             </Link>
           ))}
+          <Link
+            to="/join"
+            onClick={() => setOpen(false)}
+            className="block py-3.5 text-sm font-semibold text-accent"
+          >
+            Join Us!
+          </Link>
         </nav>
       )}
     </header>
@@ -101,14 +106,15 @@ function PrivacyNotice() {
   return (
     <div className="fixed inset-x-4 bottom-4 z-[60] mx-auto max-w-[900px] rounded-2xl border border-border bg-background/95 p-5 shadow-2xl backdrop-blur-xl md:flex md:items-center md:gap-6">
       <div className="flex-1">
-        <p className="text-sm font-semibold text-foreground">Privacy notice</p>
+        <p className="text-sm font-semibold text-foreground">Privacy & data notice</p>
         <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
-          Saudia Virtual uses this site to provide information about the VA. Registration and login are
-          handled by external services such as VAMSYS. Read our{" "}
+          Saudia Virtual collects and uses information in accordance with its Privacy Policy. Membership
+          registration is handled through VAMSYS and requires separate member consent before registration.
+          Read our{" "}
           <Link to="/privacy" className="font-semibold text-accent hover:underline">
             Privacy Policy
           </Link>
-          {" "}for details about how information may be processed.
+          .
         </p>
       </div>
       <button
@@ -151,6 +157,16 @@ export function Footer() {
                   Privacy Policy
                 </Link>
               </li>
+              <li>
+                <Link to="/anti-piracy" className="text-sm text-muted-foreground hover:text-accent">
+                  Software & Copyright Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/vatsim" className="text-sm text-muted-foreground hover:text-accent">
+                  VATSIM Operations
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
@@ -170,6 +186,23 @@ export function Footer() {
               <li>Hubs: OEJN · OERK</li>
             </ul>
           </div>
+        </div>
+
+        <div className="mt-12 border-t border-border/60 pt-8">
+          <p className="eyebrow mb-5">VATSIM Network</p>
+          <a
+            href="https://www.vatsim.net/"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex rounded-xl border border-border bg-background/40 p-4 transition-colors hover:border-accent"
+            aria-label="Visit VATSIM"
+          >
+            <img
+              src="https://commons.wikimedia.org/wiki/Special:Redirect/file/VATSIM_Logo_Official.png"
+              alt="VATSIM"
+              className="h-12 w-auto object-contain"
+            />
+          </a>
         </div>
       </div>
       <div className="relative overflow-hidden border-t border-border/60">
