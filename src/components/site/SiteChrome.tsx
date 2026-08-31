@@ -158,11 +158,6 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/anti-piracy" className="text-sm text-muted-foreground hover:text-accent">
-                  Software & Copyright Policy
-                </Link>
-              </li>
-              <li>
                 <Link to="/vatsim" className="text-sm text-muted-foreground hover:text-accent">
                   VATSIM Operations
                 </Link>
@@ -189,20 +184,27 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-border/60 pt-8">
-          <p className="eyebrow mb-5">VATSIM Network</p>
-          <a
-            href="https://www.vatsim.net/"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex rounded-xl border border-border bg-background/40 p-4 transition-colors hover:border-accent"
-            aria-label="Visit VATSIM"
-          >
-            <img
-              src="https://commons.wikimedia.org/wiki/Special:Redirect/file/VATSIM_Logo_Official.png"
-              alt="VATSIM"
-              className="h-12 w-auto object-contain"
-            />
-          </a>
+          <p className="eyebrow mb-5">Partners and Friends</p>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <a
+              href="https://www.vatsim.net/"
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-xl border border-border bg-background/30 p-5 transition-colors hover:border-accent"
+            >
+              <p className="font-display text-base font-semibold text-foreground group-hover:text-accent">VATSIM</p>
+              <p className="mt-1 text-xs text-muted-foreground">Online flight simulation network</p>
+            </a>
+            <a
+              href="https://vamsys.io/"
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-xl border border-border bg-background/30 p-5 transition-colors hover:border-accent"
+            >
+              <p className="font-display text-base font-semibold text-foreground group-hover:text-accent">VAMSYS</p>
+              <p className="mt-1 text-xs text-muted-foreground">VA registration, roster and flight management</p>
+            </a>
+          </div>
         </div>
       </div>
       <div className="relative overflow-hidden border-t border-border/60">
