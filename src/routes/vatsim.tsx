@@ -24,8 +24,8 @@ function Vatsim() {
         <h1 className="h-display mt-4">Saudia Virtual on VATSIM.</h1>
         <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted-foreground">
           Saudia Virtual is built to encourage members to fly online and participate in the wider
-          VATSIM community. This page provides the public VA information needed to understand our
-          network operations and organizational structure.
+          VATSIM community. This page provides public VA information for members, visitors and future
+          audit review.
         </p>
 
         <section className="mt-14">
@@ -39,10 +39,11 @@ function Vatsim() {
               </p>
             </div>
             <div className="surface p-7">
-              <p className="text-[11px] font-bold tracking-[0.22em] text-accent uppercase">ICAO callsign</p>
+              <p className="text-[11px] font-bold tracking-[0.22em] text-accent uppercase">Callsign ICAO</p>
               <p className="mt-2 text-xl font-semibold">SVA</p>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                Intended VA callsign prefix for Saudia Virtual network operations.
+                VA callsign prefix used for Saudia Virtual network operations and maintained for audit
+                verification.
               </p>
             </div>
             <div className="surface p-7">
@@ -61,7 +62,7 @@ function Vatsim() {
             <p className="text-base leading-relaxed text-muted-foreground">
               Membership registration and account administration are handled through VAMSYS. The VA
               website remains publicly accessible for essential organizational and operational
-              information, while member account data is managed by the external membership platform.
+              information, while member account data is managed through the membership platform.
             </p>
             <a
               href="https://vamsys.io/register/vsva"
@@ -86,11 +87,11 @@ function Vatsim() {
               </p>
             </div>
             <div className="surface p-7">
-              <h3 className="text-xl">Callsings &amp; network use</h3>
+              <h3 className="text-xl">Callsigns &amp; network use</h3>
               <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
                 Pilots are encouraged to use the VA callsign prefix consistently when flying on VATSIM.
                 Any additional callsign ICAOs used by the VA will be maintained and provided to VATSIM
-                as required.
+                when required.
               </p>
             </div>
           </div>
