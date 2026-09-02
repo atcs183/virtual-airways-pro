@@ -187,22 +187,40 @@ export function Footer() {
           <p className="eyebrow mb-5">Partners and Friends</p>
           <div className="grid gap-4 sm:grid-cols-2">
             <a
-              href="https://www.vatsim.net/"
+              href="https://vatsim.net/"
               target="_blank"
               rel="noreferrer"
-              className="group rounded-xl border border-border bg-background/30 p-5 transition-colors hover:border-accent"
+              className="group flex items-center justify-between gap-6 rounded-xl border border-border bg-background/30 p-5 transition-colors hover:border-accent"
             >
-              <p className="font-display text-base font-semibold text-foreground group-hover:text-accent">VATSIM</p>
-              <p className="mt-1 text-xs text-muted-foreground">Online flight simulation network</p>
+              <div>
+                <p className="font-display text-base font-semibold text-foreground group-hover:text-accent">
+                  VATSIM
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">Online flight simulation network</p>
+              </div>
+              <img
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/VATSIM_Logo_Official.png"
+                alt="VATSIM"
+                className="h-12 w-auto max-w-[150px] object-contain"
+              />
             </a>
             <a
               href="https://vamsys.io/"
               target="_blank"
               rel="noreferrer"
-              className="group rounded-xl border border-border bg-background/30 p-5 transition-colors hover:border-accent"
+              className="group flex items-center justify-between gap-6 rounded-xl border border-border bg-background/30 p-5 transition-colors hover:border-accent"
             >
-              <p className="font-display text-base font-semibold text-foreground group-hover:text-accent">VAMSYS</p>
-              <p className="mt-1 text-xs text-muted-foreground">VA registration, roster and flight management</p>
+              <div>
+                <p className="font-display text-base font-semibold text-foreground group-hover:text-accent">
+                  VAMSYS
+                </p>
+                <p className="mt-1 text-xs text-muted-foreground">VA registration, roster and flight management</p>
+              </div>
+              <img
+                src="https://vamsys.io/favicon.ico"
+                alt="VAMSYS"
+                className="h-12 w-12 object-contain"
+              />
             </a>
           </div>
         </div>
